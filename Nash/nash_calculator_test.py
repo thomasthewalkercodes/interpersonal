@@ -1,12 +1,17 @@
 import numpy as np
-
-from nash_calculator import solve_2x2_nash
+from Nash.nash_calculator import solve_2x2_nash, PayoffMatrix, PayoffDisplay
 
 # Example usage
 if __name__ == "__main__":
     # Create example payoff matrices
-    A1 = np.array([[3, 1], [0, 2]])  # Player 1's payoff matrix
-    A2 = np.array([[2, 1], [0, 3]])  # Player 2's payoff matrix
+    A1 = np.array([[3, 1], 
+                   [0, 2]])  # Player 1's payoff matrix
+    A2 = np.array([[2, 1], 
+                   [0, 3]])  # Player 2's payoff matrix
+
+    # Display the combined payoff matrix first
+    payoff = PayoffMatrix(A1, A2)
+    PayoffDisplay.display_combined_matrix(payoff)
 
     # Solve for Nash equilibria
     result = solve_2x2_nash(A1, A2)
