@@ -28,7 +28,13 @@ class PayoffDisplay:
             ]
             for i in range(2)
         ]
-        df = pd.DataFrame(combined, index=["Up", "Down"], columns=["Left", "Right"])
+        df = pd.DataFrame(
+            combined,
+            index=["Up", "Down"],
+            columns=[
+                "Left", "Right"
+            ]
+        )
         print(df)
         print()
 
@@ -61,7 +67,9 @@ class PureStrategyAnalyzer:
         ]
         return [
             f"({s1}, {s2})"
-            for (s1, s2), is_eq in zip(strategies, self.pure_equilibria.flatten())
+            for (s1, s2), is_eq in zip(
+                strategies, self.pure_equilibria.flatten()
+            )
             if is_eq
         ]
 
