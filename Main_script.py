@@ -1,7 +1,7 @@
-from nash_calculator import solve_2x2_nash
+from .Nash.nash_calculator import solve_2x2_nash
 import numpy as np
 
-from Q_learning import (
+from .agent_thinking.Q_learning import (
     QLearningConfig,
     QLearningAgent,
     GameEnvironment,
