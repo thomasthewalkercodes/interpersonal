@@ -22,8 +22,8 @@ from agent_thinking.Q_learning import (
 
 def main():
     # Example usage
-    A1 = np.array([[3, 1], [0, 2]])
-    A2 = np.array([[2, 1], [0, 3]])
+    A1 = np.array([[3, 0], [0, 2]])
+    A2 = np.array([[2, 0], [0, 3]])
 
     # First: Get and display Nash equilibrium
     print("\n=== Nash Equilibrium Analysis ===")
@@ -33,7 +33,7 @@ def main():
     p_init = nash_result["mixed_strategy"]["p_star"]
     q_init = nash_result["mixed_strategy"]["q_star"]
 
-    print(f"\nNash Equilibrium Strategies:")
+    print("\nNash Equilibrium Strategies:")
     print(f"Player 1 (Up probability): {p_init:.4f}")
     print(f"Player 2 (Left probability): {q_init:.4f}")
     print("\n" + "=" * 30 + "\n")
@@ -44,27 +44,19 @@ def main():
     # Configure agents
     config1 = QLearningConfig(
         alpha=0.1,
-        beta=1.0,
+        beta=2.0,
         gamma=0.88,
         rho=0.88,
         lambda_val=2.25,
         ema_weight=0.1,
-        novelty_weight=0.1,
-        novelty_decay=0.5,
-        prior_weight=0.3,
-        rand_explore=0.1,
     )
     config2 = QLearningConfig(
         alpha=0.1,
-        beta=1.0,
+        beta=2.0,
         gamma=0.88,
         rho=0.88,
         lambda_val=2.25,
         ema_weight=0.1,
-        novelty_weight=0.1,
-        novelty_decay=0.5,
-        prior_weight=0.3,
-        rand_explore=0.1,
     )
 
     # Create agents with Nash equilibrium as initial strategy
@@ -75,7 +67,7 @@ def main():
     game = GameEnvironment(A1, A2, agent1, agent2)
 
     # Run simulation and collect data
-    n_rounds = 1000
+    n_rounds = 300
     actions1, actions2 = [], []
     payoffs1, payoffs2 = [], []
 

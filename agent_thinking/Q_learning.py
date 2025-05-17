@@ -1,4 +1,3 @@
-# Q-Learning (machine learning)
 import numpy as np
 from typing import Dict, Tuple
 from dataclasses import dataclass
@@ -14,59 +13,41 @@ class QLearningConfig:
     rho: float  # Risk aversion parameter
     lambda_val: float  # Loss aversion parameter
     ema_weight: float  # Weight for exponential moving average
-    novelty_weight: float  # Weight for novelty bonus
-    novelty_decay: float  # Decay rate for novelty bonus
-    prior_weight: float  # Weight for prior knowledge
-    rand_explore: float  # Random exploration probability
 
 
 class QLearningAgent:
-    """Q-learning agent with prospect theory and novelty seeking"""
+    """Q-learning agent with prospect theory"""
 
     def __init__(self, config: QLearningConfig, initial_strategy: float):
         self.config = config
-        self.Q_values = {"Up": 0.0, "Down": 0.0}  # Q-values for actions
-        self.reference_point = 0.0  # Reference point for prospect theory
-        self.last_action = None
-        self.action_counts = {"Up": 0, "Down": 0}
-        self.last_seen = {"Up": 0, "Down": 0}
+        # Initialize different Q-values for each player
+        if initial_strategy > 0.5:  # Player 1
+            self.Q_values = {"Up": 0.0, "Down": 0.0}
+        else:  # Player 2
+            self.Q_values = {"Left": 0.0, "Right": 0.0}
+
+        self.reference_point = 0.0
+        # Keep tracking for visualization
         self.current_round = 1
-        self.prior_probability = initial_strategy
+        self.action_counts = {k: 0 for k in self.Q_values.keys()}
+        self.last_seen = {k: 0 for k in self.Q_values.keys()}
 
-    def get_novelty_bonus(self, action: str) -> float:
-        """Calculate novelty bonus for an action"""
-        rounds_since_seen = self.current_round - self.last_seen[action]
-        return rounds_since_seen**self.config.novelty_decay
-
-    def choose_action(self, explore: bool = True) -> str:
-        """Select action using softmax policy with exploration"""
-        if explore and np.random.random() < self.config.rand_explore:
-            return np.random.choice(["Up", "Down"])
-
-        # Combine learned values with prior knowledge
-        novelty_bonus = {
-            action: self.get_novelty_bonus(action) for action in self.Q_values
+    def choose_action(self) -> str:
+        """Select action using softmax policy"""
+        # Simple softmax calculation
+        exp_q = {
+            action: np.exp(self.config.beta * self.Q_values[action])
+            for action in self.Q_values
         }
 
-        novelty_mean = np.mean(list(novelty_bonus.values()))
-        current_prior_weight = (
-            self.config.prior_weight + self.config.novelty_weight * novelty_mean
-        )
+        total_exp_q = sum(exp_q.values())
+        probs = {action: eq / total_exp_q for action, eq in exp_q.items()}
 
-        # Softmax probability calculation
-        learned_probs = self._calculate_softmax_probabilities()
-        final_prob_up = (1 - current_prior_weight) * learned_probs[
-            "Up"
-        ] + current_prior_weight * self.prior_probability
-
-        return "Up" if np.random.random() < final_prob_up else "Down"
-
-    def _calculate_softmax_probabilities(self) -> Dict[str, float]:
-        """Calculate action probabilities using softmax"""
-        exp_q_up = np.exp(self.config.beta * self.Q_values["Up"])
-        exp_q_down = np.exp(self.config.beta * self.Q_values["Down"])
-        prob_up = exp_q_up / (exp_q_up + exp_q_down)
-        return {"Up": prob_up, "Down": 1 - prob_up}
+        # Action selection based on player type
+        if "Up" in self.Q_values:  # Player 1
+            return "Up" if np.random.random() < probs["Up"] else "Down"
+        else:  # Player 2
+            return "Left" if np.random.random() < probs["Left"] else "Right"
 
     def update(self, action: str, payoff: float) -> None:
         """Update Q-values and reference point based on received payoff"""
@@ -91,7 +72,7 @@ class QLearningAgent:
             + (1 - self.config.ema_weight) * self.reference_point
         )
 
-        # Update action tracking
+        # Keep action tracking for visualization
         self.last_seen[action] = self.current_round
         self.action_counts[action] += 1
         self.current_round += 1
