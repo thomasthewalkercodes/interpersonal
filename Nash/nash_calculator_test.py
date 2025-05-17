@@ -4,9 +4,9 @@ from Nash.nash_calculator import solve_2x2_nash, PayoffMatrix, PayoffDisplay
 # Example usage
 if __name__ == "__main__":
     # Create example payoff matrices
-    A1 = np.array([[3, 1], 
+    A1 = np.array([[3, 1],
                    [0, 2]])  # Player 1's payoff matrix
-    A2 = np.array([[2, 1], 
+    A2 = np.array([[2, 1],
                    [0, 3]])  # Player 2's payoff matrix
 
     # Display the combined payoff matrix first
@@ -17,7 +17,7 @@ if __name__ == "__main__":
     result = solve_2x2_nash(A1, A2)
 
     # Display results
-    print("\nResults Summary:")
+    print("\n Results Summary:")
     print("Pure Strategy Equilibria:", result["pure_equilibria"])
 
     mixed = result["mixed_strategy"]
@@ -26,4 +26,4 @@ if __name__ == "__main__":
         print(f"Player 1 plays Up with probability: {mixed['p_star']:.4f}")
         print(f"Player 2 plays Left with probability: {mixed['q_star']:.4f}")
     else:
-        print("\nNo valid mixed strategy equilibrium found")
+        print("\n No valid mixed strategy equilibrium found")
