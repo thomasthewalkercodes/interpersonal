@@ -5,38 +5,43 @@ import numpy as np
 import os
 import sys
 import matplotlib.pyplot as plt
-from Configurations import QLearningConfig  # Updated import
+from Configurations import (
+    QLearningConfig,
+    config1,
+    config2,
+    N_ROUNDS,
+    A1,
+    A2,
+)  # Updated import
 from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
 from agent_thinking.prior_handling import (
     PriorConfig,
-)  # Import PriorConfig here if needed
+)
+from Nash.nash_calculator import solve_2x2_nash
 
 # Add the project root to Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.append(current_dir)
 
-# Now import your local modules
-from Nash.nash_calculator import solve_2x2_nash
-from agent_thinking.Q_learning import (
-    QLearningAgent,
-    GameEnvironment,
-)
-from agent_thinking.prior_handling import PriorConfig
-
 
 def main():
-    # Example usage
-    A1 = np.array([[1, 0], [0, 1]])
-    A2 = np.array([[0, 1], [1, 0]])
-
     # First: Get and display Nash equilibrium
     print("\n=== Nash Equilibrium Analysis ===")
     nash_result = solve_2x2_nash(A1, A2)
 
-    # Get initial strategies
-    p_init = nash_result["mixed_strategy"]["p_star"]
-    q_init = nash_result["mixed_strategy"]["q_star"]
+    # Add error checking for Nash equilibrium calculation
+    if nash_result is None or "mixed_strategy" not in nash_result:
+        print("Error: Failed to calculate Nash equilibrium")
+        return
+
+    # Get initial strategies with error checking
+    p_init = nash_result.get("mixed_strategy", {}).get("p_star")
+    q_init = nash_result.get("mixed_strategy", {}).get("q_star")
+
+    if p_init is None or q_init is None:
+        print("Error: Invalid Nash equilibrium probabilities")
+        return
 
     print("\nNash Equilibrium Strategies:")
     print(f"Player 1 (Up probability): {p_init:.4f}")
@@ -45,26 +50,6 @@ def main():
 
     # Second: Configure and run Q-learning simulation
     print("=== Starting Q-Learning Simulation ===")
-
-    # Configure agents
-    config1 = QLearningConfig(
-        alpha=0.1,
-        beta=2.0,
-        gamma=0.88,
-        rho=0.88,
-        lambda_val=2.25,
-        ema_weight=0.1,
-        prior_weight=0.2,
-    )
-    config2 = QLearningConfig(
-        alpha=0.1,
-        beta=2.0,
-        gamma=0.88,
-        rho=0.88,
-        lambda_val=2.25,
-        ema_weight=0.1,
-        prior_weight=0.2,
-    )
 
     # Create agents with Nash equilibrium as initial strategy
     agent1 = QLearningAgent(config1, is_player1=True, initial_strategy=p_init)
@@ -75,10 +60,13 @@ def main():
 
     # Calculate and display initial joint probabilities
     print("\n=== Initial Nash Equilibrium Joint Probabilities ===")
-    prob_UL = p_init * q_init
-    prob_UR = p_init * (1 - q_init)
-    prob_DL = (1 - p_init) * q_init
-    prob_DR = (1 - p_init) * (1 - q_init)
+    prob_UL = p_init * q_init  # Both play first action (Up, Left)
+    prob_UR = p_init * (1 - q_init)  # P1 plays Up, P2 plays Right
+    prob_DL = (1 - p_init) * q_init  # P1 plays Down, P2 plays Left
+    prob_DR = (1 - p_init) * (1 - q_init)  # Both play second action (Down, Right)
+
+    # Store initial probabilities immediately in the correct format
+    initial_probs = {"UL": prob_UL, "UR": prob_UR, "DL": prob_DL, "DR": prob_DR}
 
     print(f"Up-Left probability:    {prob_UL:.4f}")
     print(f"Up-Right probability:   {prob_UR:.4f}")
@@ -99,11 +87,9 @@ def main():
     print("=== Starting Q-Learning Simulation ===")
 
     # Run simulation and collect data
-    n_rounds = 200
+    print(f"\nRunning {N_ROUNDS} rounds of interaction...")
 
-    print(f"\nRunning {n_rounds} rounds of interaction...")
-
-    for round_num in range(1, n_rounds):
+    for round_num in range(1, N_ROUNDS):
         action1, action2, payoff1, payoff2 = game.step()
         actions1.append(action1)
         actions2.append(action2)
@@ -119,19 +105,12 @@ def main():
     print("\n=== Simulation Complete ===")
     print(f"Average Payoff Player 1: {np.mean(payoffs1):.4f}")
     print(f"Average Payoff Player 2: {np.mean(payoffs2):.4f}")
-    # Calculate initial joint probabilities
-    initial_probs = {
-        "UL": p_init * q_init,
-        "UR": p_init * (1 - q_init),
-        "DL": (1 - p_init) * q_init,
-        "DR": (1 - p_init) * (1 - q_init),
-    }
 
     # Create and show visualization
     print("\n=== Generating Visualizations ===")
     from visualization.game_plots import GameVisualizer
 
-    visualizer = GameVisualizer(n_rounds)
+    visualizer = GameVisualizer(N_ROUNDS)
     visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
 
 

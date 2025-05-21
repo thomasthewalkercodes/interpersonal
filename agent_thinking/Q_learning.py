@@ -1,7 +1,7 @@
 import numpy as np
 from typing import Dict, Tuple
 from dataclasses import dataclass
-from Configurations import QLearningConfig
+from Configurations import QLearningConfig, A1, A2  # Add matrices to import
 from .prior_handling import NashEquilibriumPrior
 
 
@@ -14,32 +14,39 @@ class QLearningAgent:
         is_player1: bool,
         initial_strategy: float,
     ):
-        """
-        Initialize Q-learning agent
-        Args:
-            config: Learning parameters
-            is_player1: True if this is Player 1 (using A1 matrix), False for Player 2 (using A2 matrix)
-            initial_strategy: Nash equilibrium probability (p_star for Player 1, q_star for Player 2)
-        """
+        """Initialize Q-learning agent with payoff-based Q-values"""
         self.config = config
         self.is_player1 = is_player1
         self.prior_handler = NashEquilibriumPrior(initial_strategy)
 
-        # Initialize Q-values based on player type
+        # Calculate initial Q-values based on expected payoffs under Nash equilibrium
         if is_player1:
-            self.Q_values = {"Up": 0.0, "Down": 0.0}
+            payoff_matrix = A1
+            expected_up = payoff_matrix[0, 0] * initial_strategy + payoff_matrix[
+                0, 1
+            ] * (1 - initial_strategy)
+            expected_down = payoff_matrix[1, 0] * initial_strategy + payoff_matrix[
+                1, 1
+            ] * (1 - initial_strategy)
+            self.Q_values = {"Up": expected_up, "Down": expected_down}
         else:
-            self.Q_values = {"Left": 0.0, "Right": 0.0}
+            payoff_matrix = A2
+            expected_left = payoff_matrix[0, 0] * initial_strategy + payoff_matrix[
+                1, 0
+            ] * (1 - initial_strategy)
+            expected_right = payoff_matrix[0, 1] * initial_strategy + payoff_matrix[
+                1, 1
+            ] * (1 - initial_strategy)
+            self.Q_values = {"Left": expected_left, "Right": expected_right}
 
         self.reference_point = 0.0
-        # Keep tracking for visualization
         self.current_round = 1
         self.action_counts = {k: 0 for k in self.Q_values.keys()}
         self.last_seen = {k: 0 for k in self.Q_values.keys()}
 
     def choose_action(self) -> str:
         """Select action using softmax policy with prior influence"""
-        # Calculate basic softmax probabilities
+        # Calculate probabilities with higher beta for more exploitation
         exp_q = {
             action: np.exp(self.config.beta * self.Q_values[action])
             for action in self.Q_values
@@ -47,11 +54,22 @@ class QLearningAgent:
         total_exp_q = sum(exp_q.values())
         probs = {action: eq / total_exp_q for action, eq in exp_q.items()}
 
-        # Use prior handler to blend probabilities
         if self.is_player1:
+            # Print debug info
+            print(
+                f"P1 Q-values: Up={self.Q_values['Up']:.2f}, Down={self.Q_values['Down']:.2f}"
+            )
+            print(f"P1 Probs: Up={probs['Up']:.2f}, Down={probs['Down']:.2f}")
+
             prob_up = self.prior_handler.blend_probabilities(probs["Up"], self.config)
             return "Up" if np.random.random() < prob_up else "Down"
         else:
+            # Print debug info
+            print(
+                f"P2 Q-values: Left={self.Q_values['Left']:.2f}, Right={self.Q_values['Right']:.2f}"
+            )
+            print(f"P2 Probs: Left={probs['Left']:.2f}, Right={probs['Right']:.2f}")
+
             prob_left = self.prior_handler.blend_probabilities(
                 probs["Left"], self.config
             )
@@ -59,31 +77,17 @@ class QLearningAgent:
 
     def update(self, action: str, payoff: float) -> None:
         """Update Q-values and reference point based on received payoff"""
-        # Risk aversion transformation
-        utility = np.sign(payoff) * abs(payoff) ** self.config.rho
+        # Direct payoff update without risk aversion for clearer learning
+        value = payoff  # Remove complexity of prospect theory initially
 
-        # Prospect theory value calculation
-        if utility >= self.reference_point:
-            value = (utility - self.reference_point) ** self.config.gamma
-        else:
-            value = (
-                -self.config.lambda_val
-                * (self.reference_point - utility) ** self.config.gamma
-            )
+        # Standard Q-learning update
+        old_value = self.Q_values[action]
+        self.Q_values[action] = old_value + self.config.alpha * (value - old_value)
 
-        # Q-value update
-        self.Q_values[action] += self.config.alpha * (value - self.Q_values[action])
-
-        # Update reference point using exponential moving average
-        self.reference_point = (
-            self.config.ema_weight * utility
-            + (1 - self.config.ema_weight) * self.reference_point
+        # Optional: Print for debugging
+        print(
+            f"Action: {action}, Payoff: {payoff:.2f}, Q-value: {self.Q_values[action]:.2f}"
         )
-
-        # Keep action tracking for visualization
-        self.last_seen[action] = self.current_round
-        self.action_counts[action] += 1
-        self.current_round += 1
 
 
 class GameEnvironment:

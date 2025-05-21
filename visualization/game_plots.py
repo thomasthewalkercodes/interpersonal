@@ -1,10 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from typing import List
+from Configurations import N_ROUNDS  # Add this import
 
 
 class GameVisualizer:
-    def __init__(self, n_rounds: int):
+    def __init__(self, n_rounds: int = N_ROUNDS):  # Make N_ROUNDS the default
         self.n_rounds = n_rounds
         self.window = 50
 
@@ -29,7 +30,7 @@ class GameVisualizer:
             actions2_bin, np.ones(self.window) / self.window, mode="valid"
         )
 
-        # Compute joint probabilities
+        # Calculate joint probabilities
         prob_UL = p_history * q_history
         prob_UR = p_history * (1 - q_history)
         prob_DL = (1 - p_history) * q_history
@@ -38,13 +39,13 @@ class GameVisualizer:
         # Create x-axis values for plotting
         rounds = range(len(prob_UL))
 
-        # Add initial probabilities if provided
+        # Add initial probabilities
         if initial_probs:
             prob_UL = np.concatenate(([initial_probs["UL"]], prob_UL))
             prob_UR = np.concatenate(([initial_probs["UR"]], prob_UR))
             prob_DL = np.concatenate(([initial_probs["DL"]], prob_DL))
             prob_DR = np.concatenate(([initial_probs["DR"]], prob_DR))
-            rounds = range(len(prob_UL))  # Update rounds to match new length
+            rounds = range(len(prob_UL))
 
         # Create figure with subplots
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 12))
