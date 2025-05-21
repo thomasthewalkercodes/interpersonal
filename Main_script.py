@@ -1,5 +1,6 @@
 # import matplotlib
 # pip install matplotlib
+# pip install seaborn pandas
 # Import required packages
 import numpy as np
 import os
@@ -13,13 +14,73 @@ from Configurations import (
     N_ROUNDS,
     A1,
     A2,
+    TestConfiguration,  # Add this import
 )
 from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
+from visualization.mapping_plot import SimulationResult, ResultMapper
+import pandas as pd
 
 # Add the project root to Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
 if current_dir not in sys.path:
     sys.path.append(current_dir)
+
+
+def calculate_joint_probs(actions1, actions2):
+    """Calculate joint probabilities for the last 100 rounds"""
+    last_100_1 = actions1[-100:]
+    last_100_2 = actions2[-100:]
+
+    up = sum(1 for a in last_100_1 if a == "Up") / 100
+    left = sum(1 for a in last_100_2 if a == "Left") / 100
+
+    return {
+        "UL": up * left,
+        "UR": up * (1 - left),
+        "DL": (1 - up) * left,
+        "DR": (1 - up) * (1 - left),
+    }
+
+
+def run_simulation_batch(test_config: TestConfiguration) -> ResultMapper:
+    """Run multiple simulations with different configurations"""
+    results = []
+    for config in test_config.generate_configs():
+        for _ in range(test_config.n_repetitions):
+            # Initialize Q-learning simulation with current config
+            agent1 = QLearningAgent(
+                QLearningConfig(**config), is_player1=True, payoff_matrices=(A1, A2)
+            )
+            agent2 = QLearningAgent(
+                QLearningConfig(**config), is_player1=False, payoff_matrices=(A1, A2)
+            )
+            game = GameEnvironment(A1, A2, agent1, agent2)
+
+            # Run simulation
+            actions1, actions2 = [], []
+            payoffs1, payoffs2 = [], []
+
+            for _ in range(test_config.n_rounds):
+                action1, action2, payoff1, payoff2 = game.step()
+                actions1.append(action1)
+                actions2.append(action2)
+                payoffs1.append(payoff1)
+                payoffs2.append(payoff2)
+
+            # Calculate final strategies
+            p_final = sum(1 for a in actions1[-100:] if a == "Up") / 100
+            q_final = sum(1 for a in actions2[-100:] if a == "Left") / 100
+
+            result = SimulationResult(
+                config=config,
+                payoffs1=payoffs1,
+                payoffs2=payoffs2,
+                joint_probs=calculate_joint_probs(actions1, actions2),
+                final_strategies=(p_final, q_final),
+            )
+            results.append(result)
+
+    return ResultMapper(results)
 
 
 def main():
@@ -98,9 +159,25 @@ def main():
         visualizer = GameVisualizer(N_ROUNDS)
         visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
 
+        # Add batch simulation and visualization
+        print("\n=== Running Batch Simulations ===")
+        test_config = TestConfiguration(
+            n_repetitions=5,  # Reduced for testing
+            n_rounds=1000,
+            variable_ranges={"alpha": [0.1, 0.2, 0.3], "beta": [1.0, 2.0, 3.0]},
+        )
+
+        mapper = run_simulation_batch(test_config)
+
+        # Create all visualizations
+        print("\n=== Generating Visualizations ===")
+        mapper.create_heatmap("alpha", "beta", "mean_payoff1")
+        mapper.plot_payoff_distributions("alpha", "beta")
+        mapper.plot_convergence_metrics("alpha", "beta")
+
     except ImportError:
         print(
-            "Error: Required packages not installed. Please run 'pip install nashpy matplotlib'"
+            "Error: Required packages not installed. Please run 'pip install nashpy matplotlib seaborn pandas'"
         )
     except Exception as e:
         print(f"Unexpected error: {str(e)}")
