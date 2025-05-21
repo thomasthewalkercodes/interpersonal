@@ -55,21 +55,9 @@ class QLearningAgent:
         probs = {action: eq / total_exp_q for action, eq in exp_q.items()}
 
         if self.is_player1:
-            # Print debug info
-            print(
-                f"P1 Q-values: Up={self.Q_values['Up']:.2f}, Down={self.Q_values['Down']:.2f}"
-            )
-            print(f"P1 Probs: Up={probs['Up']:.2f}, Down={probs['Down']:.2f}")
-
             prob_up = self.prior_handler.blend_probabilities(probs["Up"], self.config)
             return "Up" if np.random.random() < prob_up else "Down"
         else:
-            # Print debug info
-            print(
-                f"P2 Q-values: Left={self.Q_values['Left']:.2f}, Right={self.Q_values['Right']:.2f}"
-            )
-            print(f"P2 Probs: Left={probs['Left']:.2f}, Right={probs['Right']:.2f}")
-
             prob_left = self.prior_handler.blend_probabilities(
                 probs["Left"], self.config
             )
@@ -83,11 +71,6 @@ class QLearningAgent:
         # Standard Q-learning update
         old_value = self.Q_values[action]
         self.Q_values[action] = old_value + self.config.alpha * (value - old_value)
-
-        # Optional: Print for debugging
-        print(
-            f"Action: {action}, Payoff: {payoff:.2f}, Q-value: {self.Q_values[action]:.2f}"
-        )
 
 
 class GameEnvironment:

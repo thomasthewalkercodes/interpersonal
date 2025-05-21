@@ -5,6 +5,7 @@ import numpy as np
 import os
 import sys
 import matplotlib.pyplot as plt
+import nashpy as nash
 from Configurations import (
     QLearningConfig,
     config1,
@@ -12,12 +13,8 @@ from Configurations import (
     N_ROUNDS,
     A1,
     A2,
-)  # Updated import
-from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
-from agent_thinking.prior_handling import (
-    PriorConfig,
 )
-from Nash.nash_calculator import solve_2x2_nash
+from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
 
 # Add the project root to Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,92 +23,87 @@ if current_dir not in sys.path:
 
 
 def main():
-    # First: Get and display Nash equilibrium
-    print("\n=== Nash Equilibrium Analysis ===")
-    nash_result = solve_2x2_nash(A1, A2)
+    try:
+        # Create game and find all equilibria
+        game = nash.Game(A1, A2)
+        equilibria = list(game.support_enumeration())
 
-    # Add error checking for Nash equilibrium calculation
-    if nash_result is None or "mixed_strategy" not in nash_result:
-        print("Error: Failed to calculate Nash equilibrium")
-        return
+        if not equilibria:
+            print("Error: No Nash equilibria found")
+            return
 
-    # Get initial strategies with error checking
-    p_init = nash_result.get("mixed_strategy", {}).get("p_star")
-    q_init = nash_result.get("mixed_strategy", {}).get("q_star")
+        # Display all equilibria
+        print("\n=== Nash Equilibrium Analysis ===")
+        for i, (p, q) in enumerate(equilibria, 1):
+            print(f"\nEquilibrium {i}:")
+            print(f"Player 1 strategy (Up, Down): ({p[0]:.4f}, {p[1]:.4f})")
+            print(f"Player 2 strategy (Left, Right): ({q[0]:.4f}, {q[1]:.4f})")
 
-    if p_init is None or q_init is None:
-        print("Error: Invalid Nash equilibrium probabilities")
-        return
+            # Identify if pure or mixed
+            is_pure = all(x in [0.0, 1.0] for x in np.concatenate([p, q]))
+            print(f"Type: {'Pure' if is_pure else 'Mixed'} Strategy")
 
-    print("\nNash Equilibrium Strategies:")
-    print(f"Player 1 (Up probability): {p_init:.4f}")
-    print(f"Player 2 (Left probability): {q_init:.4f}")
-    print("\n" + "=" * 30 + "\n")
+        print("\n" + "=" * 30 + "\n")
 
-    # Second: Configure and run Q-learning simulation
-    print("=== Starting Q-Learning Simulation ===")
+        # Use first equilibrium for simulation
+        p_init, q_init = equilibria[0]
 
-    # Create agents with Nash equilibrium as initial strategy
-    agent1 = QLearningAgent(config1, is_player1=True, initial_strategy=p_init)
-    agent2 = QLearningAgent(config2, is_player1=False, initial_strategy=q_init)
+        # Initialize Q-learning simulation
+        agent1 = QLearningAgent(config1, is_player1=True, initial_strategy=p_init[0])
+        agent2 = QLearningAgent(config2, is_player1=False, initial_strategy=q_init[0])
+        game = GameEnvironment(A1, A2, agent1, agent2)
 
-    # Create game environment
-    game = GameEnvironment(A1, A2, agent1, agent2)
+        # Store initial joint probabilities
+        initial_probs = {
+            "UL": p_init[0] * q_init[0],
+            "UR": p_init[0] * q_init[1],
+            "DL": p_init[1] * q_init[0],
+            "DR": p_init[1] * q_init[1],
+        }
 
-    # Calculate and display initial joint probabilities
-    print("\n=== Initial Nash Equilibrium Joint Probabilities ===")
-    prob_UL = p_init * q_init  # Both play first action (Up, Left)
-    prob_UR = p_init * (1 - q_init)  # P1 plays Up, P2 plays Right
-    prob_DL = (1 - p_init) * q_init  # P1 plays Down, P2 plays Left
-    prob_DR = (1 - p_init) * (1 - q_init)  # Both play second action (Down, Right)
+        # Initialize history tracking
+        actions1 = ["Up" if np.random.random() < p_init[0] else "Down"]
+        actions2 = ["Left" if np.random.random() < q_init[0] else "Right"]
+        idx1, idx2 = (
+            0 if actions1[0] == "Up" else 1,
+            0 if actions2[0] == "Left" else 1,
+        )
+        payoffs1 = [A1[idx1, idx2]]
+        payoffs2 = [A2[idx1, idx2]]
 
-    # Store initial probabilities immediately in the correct format
-    initial_probs = {"UL": prob_UL, "UR": prob_UR, "DL": prob_DL, "DR": prob_DR}
+        print("=== Starting Q-Learning Simulation ===")
+        print(f"Running {N_ROUNDS} rounds...\n")
 
-    print(f"Up-Left probability:    {prob_UL:.4f}")
-    print(f"Up-Right probability:   {prob_UR:.4f}")
-    print(f"Down-Left probability:  {prob_DL:.4f}")
-    print(f"Down-Right probability: {prob_DR:.4f}")
-    print("\n" + "=" * 30 + "\n")
+        # Run simulation
+        for round_num in range(1, N_ROUNDS):
+            action1, action2, payoff1, payoff2 = game.step()
+            actions1.append(action1)
+            actions2.append(action2)
+            payoffs1.append(payoff1)
+            payoffs2.append(payoff2)
 
-    # Add initial probabilities to the action lists
-    actions1 = ["Up" if np.random.random() < p_init else "Down"]
-    actions2 = ["Left" if np.random.random() < q_init else "Right"]
+            if round_num % 200 == 0:
+                print(
+                    f"Round {round_num}: Actions({action1}, {action2}), Payoffs({payoff1}, {payoff2})"
+                )
 
-    # Get initial payoffs based on Nash strategies
-    idx1 = 0 if actions1[0] == "Up" else 1
-    idx2 = 0 if actions2[0] == "Left" else 1
-    payoffs1 = [A1[idx1, idx2]]
-    payoffs2 = [A2[idx1, idx2]]
+        # Display results
+        print("\n=== Simulation Complete ===")
+        print(f"Average Payoff Player 1: {np.mean(payoffs1):.4f}")
+        print(f"Average Payoff Player 2: {np.mean(payoffs2):.4f}")
 
-    print("=== Starting Q-Learning Simulation ===")
+        # Generate visualizations
+        from visualization.game_plots import GameVisualizer
 
-    # Run simulation and collect data
-    print(f"\nRunning {N_ROUNDS} rounds of interaction...")
+        visualizer = GameVisualizer(N_ROUNDS)
+        visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
 
-    for round_num in range(1, N_ROUNDS):
-        action1, action2, payoff1, payoff2 = game.step()
-        actions1.append(action1)
-        actions2.append(action2)
-        payoffs1.append(payoff1)
-        payoffs2.append(payoff2)
-
-        # Print progress every 200 rounds
-        if round_num % 200 == 0:
-            print(
-                f"Round {round_num}: Actions({action1}, {action2}), Payoffs({payoff1}, {payoff2})"
-            )
-
-    print("\n=== Simulation Complete ===")
-    print(f"Average Payoff Player 1: {np.mean(payoffs1):.4f}")
-    print(f"Average Payoff Player 2: {np.mean(payoffs2):.4f}")
-
-    # Create and show visualization
-    print("\n=== Generating Visualizations ===")
-    from visualization.game_plots import GameVisualizer
-
-    visualizer = GameVisualizer(N_ROUNDS)
-    visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
+    except ImportError:
+        print(
+            "Error: Required packages not installed. Please run 'pip install nashpy matplotlib'"
+        )
+    except Exception as e:
+        print(f"Unexpected error: {str(e)}")
 
 
 if __name__ == "__main__":
