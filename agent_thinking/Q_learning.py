@@ -1,8 +1,19 @@
 import numpy as np
-from typing import Dict, Tuple
+from typing import Dict, Tuple, List
 from dataclasses import dataclass
-from Configurations import QLearningConfig, A1, A2  # Add matrices to import
+from Configurations import QLearningConfig, A1, A2
 from .prior_handling import NashEquilibriumPrior
+import nashpy as nash
+
+
+def get_best_equilibrium(equilibria: List[Tuple]) -> Tuple:
+    """Select mixed equilibrium if it exists, otherwise take first pure equilibrium"""
+    for p, q in equilibria:
+        # Check if this is a mixed strategy (not all probabilities are 0 or 1)
+        if not all(x in [0.0, 1.0] for x in np.concatenate([p, q])):
+            return p, q
+    # If no mixed strategy found, return first equilibrium
+    return equilibria[0]
 
 
 class QLearningAgent:
@@ -12,31 +23,39 @@ class QLearningAgent:
         self,
         config: QLearningConfig,
         is_player1: bool,
-        initial_strategy: float,
+        payoff_matrices: Tuple[np.ndarray, np.ndarray],
     ):
-        """Initialize Q-learning agent with payoff-based Q-values"""
+        """Initialize Q-learning agent with Nash equilibrium strategies"""
         self.config = config
         self.is_player1 = is_player1
-        self.prior_handler = NashEquilibriumPrior(initial_strategy)
 
-        # Calculate initial Q-values based on expected payoffs under Nash equilibrium
+        # Calculate Nash equilibrium
+        game = nash.Game(payoff_matrices[0], payoff_matrices[1])
+        equilibria = list(game.support_enumeration())
+        p_init, q_init = get_best_equilibrium(equilibria)
+
+        # Store initial strategy
+        self.initial_strategy = p_init[0] if is_player1 else q_init[0]
+        self.prior_handler = NashEquilibriumPrior(self.initial_strategy)
+
+        # Initialize Q-values based on Nash equilibrium
         if is_player1:
-            payoff_matrix = A1
-            expected_up = payoff_matrix[0, 0] * initial_strategy + payoff_matrix[
-                0, 1
-            ] * (1 - initial_strategy)
-            expected_down = payoff_matrix[1, 0] * initial_strategy + payoff_matrix[
-                1, 1
-            ] * (1 - initial_strategy)
+            payoff_matrix = payoff_matrices[0]
+            expected_up = (
+                payoff_matrix[0, 0] * q_init[0] + payoff_matrix[0, 1] * q_init[1]
+            )
+            expected_down = (
+                payoff_matrix[1, 0] * q_init[0] + payoff_matrix[1, 1] * q_init[1]
+            )
             self.Q_values = {"Up": expected_up, "Down": expected_down}
         else:
-            payoff_matrix = A2
-            expected_left = payoff_matrix[0, 0] * initial_strategy + payoff_matrix[
-                1, 0
-            ] * (1 - initial_strategy)
-            expected_right = payoff_matrix[0, 1] * initial_strategy + payoff_matrix[
-                1, 1
-            ] * (1 - initial_strategy)
+            payoff_matrix = payoff_matrices[1]
+            expected_left = (
+                payoff_matrix[0, 0] * p_init[0] + payoff_matrix[1, 0] * p_init[1]
+            )
+            expected_right = (
+                payoff_matrix[0, 1] * p_init[0] + payoff_matrix[1, 1] * p_init[1]
+            )
             self.Q_values = {"Left": expected_left, "Right": expected_right}
 
         self.reference_point = 0.0

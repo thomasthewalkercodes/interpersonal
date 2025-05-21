@@ -2,10 +2,9 @@ import numpy as np
 from dataclasses import dataclass
 
 
-A1 = np.array([[5, 2], [2, 5]])  # Player 1's payoff matrix
-A2 = np.array([[5, 2], [2, 5]])  # Player 2's payoff matrix
-
-N_ROUNDS = 500
+A1 = np.array([[3, 2], [2, 3]])  # Player 1's payoff matrix
+A2 = np.array([[3, 2], [2, 3]])  # Player 2's payoff matrix
+N_ROUNDS = 1000
 
 
 @dataclass

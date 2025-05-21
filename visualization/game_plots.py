@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from typing import List
-from Configurations import N_ROUNDS  # Add this import
+from typing import List, Dict
+from Configurations import N_ROUNDS
 
 
 class GameVisualizer:
-    def __init__(self, n_rounds: int = N_ROUNDS):  # Make N_ROUNDS the default
+    def __init__(self, n_rounds: int = N_ROUNDS):
         self.n_rounds = n_rounds
         self.window = 50
 
@@ -15,7 +15,7 @@ class GameVisualizer:
         actions2: List[str],
         payoffs1: List[float],
         payoffs2: List[float],
-        initial_probs: dict = None,
+        initial_probs: Dict[str, float],
     ) -> None:
         """Create and display all game plots"""
         # Calculate probabilities over time
@@ -38,14 +38,6 @@ class GameVisualizer:
 
         # Create x-axis values for plotting
         rounds = range(len(prob_UL))
-
-        # Add initial probabilities
-        if initial_probs:
-            prob_UL = np.concatenate(([initial_probs["UL"]], prob_UL))
-            prob_UR = np.concatenate(([initial_probs["UR"]], prob_UR))
-            prob_DL = np.concatenate(([initial_probs["DL"]], prob_DL))
-            prob_DR = np.concatenate(([initial_probs["DR"]], prob_DR))
-            rounds = range(len(prob_UL))
 
         # Create figure with subplots
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 12))

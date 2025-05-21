@@ -48,9 +48,9 @@ def main():
         # Use first equilibrium for simulation
         p_init, q_init = equilibria[0]
 
-        # Initialize Q-learning simulation
-        agent1 = QLearningAgent(config1, is_player1=True, initial_strategy=p_init[0])
-        agent2 = QLearningAgent(config2, is_player1=False, initial_strategy=q_init[0])
+        # Initialize Q-learning simulation with payoff matrices
+        agent1 = QLearningAgent(config1, is_player1=True, payoff_matrices=(A1, A2))
+        agent2 = QLearningAgent(config2, is_player1=False, payoff_matrices=(A1, A2))
         game = GameEnvironment(A1, A2, agent1, agent2)
 
         # Store initial joint probabilities
