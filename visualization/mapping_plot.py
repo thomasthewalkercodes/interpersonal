@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 from typing import Dict, List, Tuple
 from dataclasses import dataclass
 
@@ -12,7 +13,7 @@ class SimulationResult:
     config: Dict[str, float]
     payoffs1: List[float]
     payoffs2: List[float]
-    joint_probs: Dict[str, List[float]]
+    joint_probs: Dict[str, float]
     final_strategies: Tuple[float, float]
 
 
@@ -21,30 +22,15 @@ class ResultMapper:
 
     def __init__(self, results: List[SimulationResult]):
         self.results = results
-        self.summary_stats = self._calculate_summary_stats()
-
-    def _calculate_summary_stats(self) -> Dict:
-        """Calculate summary statistics for all runs"""
-        stats = {}
-        for result in self.results:
-            key = tuple(result.config.items())  # Make dict hashable
-            if key not in stats:
-                stats[key] = {
-                    "mean_payoff1": [],
-                    "mean_payoff2": [],
-                    "std_payoff1": [],
-                    "std_payoff2": [],
-                    "convergence_speed": [],
-                    "final_strategies": [],
-                }
-
-            stats[key]["mean_payoff1"].append(np.mean(result.payoffs1))
-            stats[key]["mean_payoff2"].append(np.mean(result.payoffs2))
-            stats[key]["std_payoff1"].append(np.std(result.payoffs1))
-            stats[key]["std_payoff2"].append(np.std(result.payoffs2))
-            stats[key]["final_strategies"].append(result.final_strategies)
-
-        return stats
+        # Get the tested variables from the first result's config
+        # (these are the ones specified in variable_ranges)
+        self.tested_variables = sorted(
+            set(
+                key
+                for key in self.results[0].config.keys()
+                if len(set(res.config[key] for res in self.results)) > 1
+            )
+        )
 
     def create_heatmap(self, var1: str, var2: str, metric: str = "mean_payoff1"):
         """Create heatmap comparing two variables"""
@@ -53,8 +39,9 @@ class ResultMapper:
         vals2 = sorted(set(res.config[var2] for res in self.results))
 
         # Create matrix for heatmap
-        matrix = np.zeros((len(vals1), len(vals2)))
+        matrix = np.zeros((len(vals1), len(vals2)))  # Fixed closing parenthesis
 
+        # Fill matrix with average payoffs
         for i, v1 in enumerate(vals1):
             for j, v2 in enumerate(vals2):
                 relevant_results = [
@@ -62,15 +49,14 @@ class ResultMapper:
                     for r in self.results
                     if r.config[var1] == v1 and r.config[var2] == v2
                 ]
-                if metric.startswith("mean_payoff"):
-                    matrix[i, j] = np.mean(
-                        [
+                if relevant_results:
+                    if metric.startswith("mean_payoff"):
+                        payoffs = [
                             np.mean(r.payoffs1 if metric.endswith("1") else r.payoffs2)
                             for r in relevant_results
                         ]
-                    )
+                        matrix[i, j] = np.mean(payoffs)
 
-        # Create heatmap
         plt.figure(figsize=(10, 8))
         sns.heatmap(
             matrix,
@@ -82,37 +68,96 @@ class ResultMapper:
         )
         plt.xlabel(var2)
         plt.ylabel(var1)
-        plt.title(f"Heatmap of {metric} for different {var1} and {var2} values")
+        plt.title(f"Average {metric} for different {var1} and {var2} values")
         plt.show()
 
     def plot_payoff_distributions(self, var1: str, var2: str):
         """Create boxplots showing payoff distributions"""
         data = []
         for result in self.results:
-            v1, v2 = result.config[var1], result.config[var2]
-            data.extend([(v1, v2, p, 1) for p in result.payoffs1])
-            data.extend([(v1, v2, p, 2) for p in result.payoffs2])
+            data.extend(
+                [
+                    (result.config[var1], result.config[var2], p, "Player 1")
+                    for p in result.payoffs1
+                ]
+            )
+            data.extend(
+                [
+                    (result.config[var1], result.config[var2], p, "Player 2")
+                    for p in result.payoffs2
+                ]
+            )
 
-        plt.figure(figsize=(12, 6))
         df = pd.DataFrame(data, columns=[var1, var2, "Payoff", "Player"])
+        plt.figure(figsize=(12, 6))
         sns.boxplot(x=var1, y="Payoff", hue="Player", data=df)
         plt.title(f"Payoff Distributions for Different {var1} Values")
         plt.show()
 
-    def plot_convergence_metrics(self, var1: str, var2: str):
-        """Plot metrics showing convergence to Nash equilibrium"""
-        plt.figure(figsize=(10, 6))
-        for result in self.results:
-            label = f"{var1}={result.config[var1]}, {var2}={result.config[var2]}"
-            plt.plot(
-                np.cumsum(result.payoffs1) / np.arange(1, len(result.payoffs1) + 1),
-                label=label,
-                alpha=0.5,
-            )
+    def create_faceted_heatmap(self, value_col="payoff_diff"):
+        """Create single heatmap showing all variable combinations"""
+        variables = self.tested_variables
 
-        plt.xlabel("Round")
-        plt.ylabel("Cumulative Average Payoff")
-        plt.title("Convergence Analysis")
-        plt.legend(bbox_to_anchor=(1.05, 1), loc="upper left")
+        # Create DataFrame with all results
+        data = []
+        for result in self.results:
+            # Create a combination string for the x-axis
+            var_combo = "\n".join(
+                [f"{var}={result.config[var]}" for var in variables[:-1]]
+            )
+            row = {
+                "variable_combo": var_combo,
+                "last_var": result.config[variables[-1]],
+                "mean_payoff1": np.mean(result.payoffs1),
+                "mean_payoff2": np.mean(result.payoffs2),
+                "payoff_diff": np.mean(result.payoffs1) - np.mean(result.payoffs2),
+            }
+            data.append(row)
+
+        df = pd.DataFrame(data)
+
+        # Create pivot table for heatmap
+        pivot = pd.pivot_table(
+            df,
+            values=["payoff_diff", "mean_payoff1", "mean_payoff2"],
+            index="variable_combo",
+            columns="last_var",
+            aggfunc="mean",
+        )
+
+        # Create figure
+        plt.figure(figsize=(12, 8))
+
+        # Create heatmap
+        sns.heatmap(
+            pivot["payoff_diff"],
+            annot=False,
+            cmap="RdBu_r",
+            center=0,
+            cbar_kws={"label": "Payoff Difference (P1 - P2)"},
+        )
+
+        # Add text annotations with both players' payoffs
+        for i in range(len(pivot.index)):
+            for j in range(len(pivot.columns.levels[1])):
+                p1 = pivot["mean_payoff1"].iloc[i, j]
+                p2 = pivot["mean_payoff2"].iloc[i, j]
+                diff = pivot["payoff_diff"].iloc[i, j]
+                text = f"Δ: {diff:.2f}\nP1: {p1:.2f}\nP2: {p2:.2f}"
+                plt.text(
+                    j + 0.5,
+                    i + 0.5,
+                    text,
+                    ha="center",
+                    va="center",
+                    color="black",
+                    fontsize=8,
+                )
+
+        # Customize labels
+        plt.xlabel(f"{variables[-1]} values")
+        plt.ylabel("Variable Combinations")
+        plt.title("Payoff Analysis for All Variable Combinations")
+
         plt.tight_layout()
         plt.show()

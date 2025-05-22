@@ -3,8 +3,8 @@ from dataclasses import dataclass
 from typing import List, Dict
 
 
-A1 = np.array([[3, 0], [1, 3]])  # Player 1's payoff matrix
-A2 = np.array([[3, 1], [1, 3]])  # Player 2's payoff matrix
+A1 = np.array([[3, 1], [1, 2]])  # Player 1's payoff matrix
+A2 = np.array([[3, 1], [1, 2]])  # Player 2's payoff matrix
 N_ROUNDS = 1000
 
 
@@ -24,21 +24,21 @@ class QLearningConfig:
 # Default configurations for agents
 config1 = QLearningConfig(
     alpha=0.2,
-    beta=2.0,
+    beta=0.8,
     gamma=0.88,
     rho=0,
-    lambda_val=2.25,
+    lambda_val=1,
     ema_weight=0.1,
     prior_weight=0.2,
 )
 
 config2 = QLearningConfig(
     alpha=0.2,
-    beta=2.0,
+    beta=0.8,
     gamma=0.88,
     rho=0,
-    lambda_val=2.25,
-    ema_weight=0.11,
+    lambda_val=1,
+    ema_weight=0.1,
     prior_weight=0.2,
 )
 
@@ -77,29 +77,38 @@ class TestConfiguration:
         """Generate all combinations of specified variables"""
         from itertools import product
 
-        # Start with base configuration for each combination
-        combinations = product(*self.variable_ranges.values())
+        # Get all combinations of values for the specified variables
+        var_names = list(self.variable_ranges.keys())
+        var_values = list(self.variable_ranges.values())
+        combinations = list(product(*var_values))
+
         configs = []
         for combo in combinations:
-            config = self.base_config.copy()  # Start with base values
-            config.update(
-                dict(zip(self.variable_ranges.keys(), combo))
-            )  # Update tested variables
+            # Start with base configuration
+            config = self.base_config.copy()
+            # Update only the variables we're testing
+            for var_name, value in zip(var_names, combo):
+                config[var_name] = value
             configs.append(config)
 
         return configs
 
 
-# Example usage with custom base configuration
+# Define default test configuration
 test_config = TestConfiguration(
-    variable_ranges={"alpha": [0.1, 0.2], "beta": [1.0, 2.0]},
+    n_repetitions=5,
+    n_rounds=1000,
+    variable_ranges={
+        "alpha": [0.1, 0.3, 0.8],
+        "beta": [1.0, 2, 3.0],
+    },
     base_config={
-        "alpha": 0.15,  # Will be overridden by variable_ranges
-        "beta": 1.5,  # Will be overridden by variable_ranges
-        "gamma": 0.95,  # Custom base value
-        "rho": 0.1,  # Custom base value
-        "lambda_val": 2.0,
-        "ema_weight": 0.12,
-        "prior_weight": 0.25,
+        "alpha": 0.2,
+        "beta": 2.0,
+        "gamma": 0.9,
+        "rho": 0.0,
+        "lambda_val": 2.25,
+        "ema_weight": 0.1,
+        "prior_weight": 0.2,
     },
 )

@@ -14,7 +14,8 @@ from Configurations import (
     N_ROUNDS,
     A1,
     A2,
-    TestConfiguration,  # Add this import
+    TestConfiguration,
+    test_config,  # Add this import
 )
 from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
 from visualization.mapping_plot import SimulationResult, ResultMapper
@@ -45,18 +46,31 @@ def calculate_joint_probs(actions1, actions2):
 def run_simulation_batch(test_config: TestConfiguration) -> ResultMapper:
     """Run multiple simulations with different configurations"""
     results = []
-    for config in test_config.generate_configs():
+
+    # Get configurations as list of dictionaries
+    configs = test_config.generate_configs()
+
+    for config in configs:
         for _ in range(test_config.n_repetitions):
-            # Initialize Q-learning simulation with current config
-            agent1 = QLearningAgent(
-                QLearningConfig(**config), is_player1=True, payoff_matrices=(A1, A2)
+            # Create QLearningConfig objects with the current configuration
+            q_config = QLearningConfig(
+                alpha=config["alpha"],
+                beta=config["beta"],
+                gamma=config["gamma"],
+                rho=config["rho"],
+                lambda_val=config["lambda_val"],
+                ema_weight=config["ema_weight"],
+                prior_weight=config["prior_weight"],
             )
+
+            # Initialize agents with proper configuration
+            agent1 = QLearningAgent(q_config, is_player1=True, payoff_matrices=(A1, A2))
             agent2 = QLearningAgent(
-                QLearningConfig(**config), is_player1=False, payoff_matrices=(A1, A2)
+                q_config, is_player1=False, payoff_matrices=(A1, A2)
             )
-            game = GameEnvironment(A1, A2, agent1, agent2)
 
             # Run simulation
+            game = GameEnvironment(A1, A2, agent1, agent2)
             actions1, actions2 = [], []
             payoffs1, payoffs2 = [], []
 
@@ -67,16 +81,16 @@ def run_simulation_batch(test_config: TestConfiguration) -> ResultMapper:
                 payoffs1.append(payoff1)
                 payoffs2.append(payoff2)
 
-            # Calculate final strategies
-            p_final = sum(1 for a in actions1[-100:] if a == "Up") / 100
-            q_final = sum(1 for a in actions2[-100:] if a == "Left") / 100
-
+            # Create result object
             result = SimulationResult(
                 config=config,
                 payoffs1=payoffs1,
                 payoffs2=payoffs2,
                 joint_probs=calculate_joint_probs(actions1, actions2),
-                final_strategies=(p_final, q_final),
+                final_strategies=(
+                    sum(1 for a in actions1[-100:] if a == "Up") / 100,
+                    sum(1 for a in actions2[-100:] if a == "Left") / 100,
+                ),
             )
             results.append(result)
 
@@ -159,21 +173,16 @@ def main():
         visualizer = GameVisualizer(N_ROUNDS)
         visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
 
-        # Add batch simulation and visualization
+        # Add batch simulation and visualization using config from Configurations.py
         print("\n=== Running Batch Simulations ===")
-        test_config = TestConfiguration(
-            n_repetitions=5,  # Reduced for testing
-            n_rounds=1000,
-            variable_ranges={"alpha": [0.1, 0.2, 0.3], "beta": [1.0, 2.0, 3.0]},
-        )
-
         mapper = run_simulation_batch(test_config)
 
-        # Create all visualizations
-        print("\n=== Generating Visualizations ===")
-        mapper.create_heatmap("alpha", "beta", "mean_payoff1")
-        mapper.plot_payoff_distributions("alpha", "beta")
-        mapper.plot_convergence_metrics("alpha", "beta")
+        # Create faceted heatmaps
+        print("\n=== Generating Visualization ===")
+        print("\nCreating comprehensive heatmap...")
+        mapper.create_faceted_heatmap(
+            "payoff_diff"
+        )  # Shows difference with both individual payoffs in text
 
     except ImportError:
         print(

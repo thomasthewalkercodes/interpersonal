@@ -1,9 +1,9 @@
 import numpy as np
+import nashpy as nash  # Changed from 'import nash' to 'import nashpy as nash'
 from typing import Dict, Tuple, List
 from dataclasses import dataclass
 from Configurations import QLearningConfig, A1, A2
 from .prior_handling import NashEquilibriumPrior
-import nashpy as nash
 
 
 def get_best_equilibrium(equilibria: List[Tuple]) -> Tuple:
@@ -64,32 +64,50 @@ class QLearningAgent:
         self.last_seen = {k: 0 for k in self.Q_values.keys()}
 
     def choose_action(self) -> str:
-        """Select action using softmax policy with prior influence"""
-        # Calculate probabilities with higher beta for more exploitation
+        """Choose action using softmax policy with numerical stability"""
+        # Add small constant to avoid overflow
+        max_q = max(self.Q_values.values())
         exp_q = {
-            action: np.exp(self.config.beta * self.Q_values[action])
-            for action in self.Q_values
+            action: np.exp(self.config.beta * (q_val - max_q))
+            for action, q_val in self.Q_values.items()
         }
         total_exp_q = sum(exp_q.values())
-        probs = {action: eq / total_exp_q for action, eq in exp_q.items()}
 
-        if self.is_player1:
-            prob_up = self.prior_handler.blend_probabilities(probs["Up"], self.config)
-            return "Up" if np.random.random() < prob_up else "Down"
+        # Avoid division by zero
+        if total_exp_q > 0:
+            probs = {action: eq / total_exp_q for action, eq in exp_q.items()}
         else:
-            prob_left = self.prior_handler.blend_probabilities(
-                probs["Left"], self.config
-            )
-            return "Left" if np.random.random() < prob_left else "Right"
+            # If numerical issues occur, use uniform distribution
+            probs = {action: 1.0 / len(self.Q_values) for action in self.Q_values}
+
+        # Choose action based on probabilities
+        actions = list(probs.keys())
+        probabilities = list(probs.values())
+        return np.random.choice(actions, p=probabilities)
 
     def update(self, action: str, payoff: float) -> None:
-        """Update Q-values and reference point based on received payoff"""
-        # Direct payoff update without risk aversion for clearer learning
-        value = payoff  # Remove complexity of prospect theory initially
-
-        # Standard Q-learning update
+        """Update Q-values with numerical stability checks"""
         old_value = self.Q_values[action]
-        self.Q_values[action] = old_value + self.config.alpha * (value - old_value)
+        # Clip payoff to reasonable range to avoid overflow
+        payoff = np.clip(payoff, -1e6, 1e6)
+
+        # Calculate value with prospect theory
+        if payoff >= self.reference_point:
+            value = (payoff - self.reference_point) ** self.config.rho
+        else:
+            value = (
+                -self.config.lambda_val
+                * (self.reference_point - payoff) ** self.config.rho
+            )
+
+        # Clip the update to avoid overflow
+        delta = np.clip(value - old_value, -1e6, 1e6)
+        self.Q_values[action] = old_value + self.config.alpha * delta
+
+        # Update reference point using EMA
+        self.reference_point = (
+            1 - self.config.ema_weight
+        ) * self.reference_point + self.config.ema_weight * payoff
 
 
 class GameEnvironment:
