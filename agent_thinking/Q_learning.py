@@ -140,3 +140,143 @@ class GameEnvironment:
         self.agent2.update(action2, payoff2)
 
         return action1, action2, payoff1, payoff2
+
+
+class ContinuousQLearningAgent:
+    """Q-learning agent for continuous circular action space"""
+
+    def __init__(self, config: QLearningConfig, is_player1: bool):
+        self.config = config
+        self.is_player1 = is_player1
+        self.reference_point = 0.0
+
+        # Initialize action parameters (x, y coordinates)
+        self.current_x = np.random.uniform(-0.5, 0.5)
+        self.current_y = np.random.uniform(-0.5, 0.5)
+
+        # Initialize simple function approximator weights
+        self.weights_x = np.random.normal(0, 0.1, 4)  # weights for x coordinate
+        self.weights_y = np.random.normal(0, 0.1, 4)  # weights for y coordinate
+
+        # Learning history
+        self.last_action = (self.current_x, self.current_y)
+        self.action_history = []
+
+    def _feature_vector(self, x: float, y: float) -> np.ndarray:
+        """Compute feature vector for function approximation"""
+        return np.array([1.0, x, y, x * y])
+
+    def _predict_value(self, x: float, y: float, weights: np.ndarray) -> float:
+        """Predict value for a coordinate using function approximation"""
+        features = self._feature_vector(x, y)
+        return np.dot(features, weights)
+
+    def choose_action(self) -> Tuple[float, float]:
+        """Choose next action using continuous action space"""
+        # Add exploration noise
+        noise_x = np.random.normal(0, 0.1 / self.config.beta)
+        noise_y = np.random.normal(0, 0.1 / self.config.beta)
+
+        # Update position with noise and ensure within unit circle
+        new_x = self.current_x + noise_x
+        new_y = self.current_y + noise_y
+
+        # Normalize if outside unit circle
+        dist = np.sqrt(new_x**2 + new_y**2)
+        if dist > 1:
+            new_x /= dist
+            new_y /= dist
+
+        self.last_action = (new_x, new_y)
+        self.action_history.append(self.last_action)
+        return new_x, new_y
+
+    def update(self, payoff: float) -> None:
+        """Update agent's policy based on received payoff"""
+        # Calculate value using prospect theory
+        if payoff >= self.reference_point:
+            value = (payoff - self.reference_point) ** self.config.rho
+        else:
+            value = (
+                -self.config.lambda_val
+                * (self.reference_point - payoff) ** self.config.rho
+            )
+
+        # Update function approximator weights
+        x, y = self.last_action
+        features = self._feature_vector(x, y)
+
+        # Update weights for both coordinates
+        td_error_x = value - self._predict_value(x, y, self.weights_x)
+        td_error_y = value - self._predict_value(x, y, self.weights_y)
+
+        self.weights_x += self.config.alpha * td_error_x * features
+        self.weights_y += self.config.alpha * td_error_y * features
+
+        # Update reference point using exponential moving average
+        self.reference_point = (
+            self.config.ema_weight * payoff
+            + (1 - self.config.ema_weight) * self.reference_point
+        )
+
+        # Update current position
+        self.current_x, self.current_y = self.last_action
+
+
+class GameEnvironment:
+    def __init__(self, game_config, agent1, agent2):
+        self.game_config = game_config
+        self.agent1 = agent1
+        self.agent2 = agent2
+        if game_config.game_type == "matrix":
+            self.A1 = game_config.matrix_config["A1"]
+            self.A2 = game_config.matrix_config["A2"]
+        else:
+            self.circular_config = game_config.circular_config
+
+    def step(self):
+        """Execute one game step"""
+        if self.game_config.game_type == "matrix":
+            # Matrix game logic
+            action1 = self.agent1.choose_action()
+            action2 = self.agent2.choose_action()
+
+            idx1 = 0 if action1 == "Up" else 1
+            idx2 = 0 if action2 == "Left" else 1
+
+            payoff1 = self.A1[idx1, idx2]
+            payoff2 = self.A2[idx1, idx2]
+
+            self.agent1.update(payoff1)
+            self.agent2.update(payoff2)
+
+            return action1, action2, payoff1, payoff2
+        else:
+            # Circular game logic
+            action1 = self.agent1.choose_action()
+            action2 = self.agent2.choose_action()
+
+            # Calculate payoffs using circular game rules
+            dist1 = np.sqrt(action1[0] ** 2 + action1[1] ** 2)
+            dist2 = np.sqrt(action2[0] ** 2 + action2[1] ** 2)
+
+            if dist1 > 1 or dist2 > 1:  # Invalid moves outside circle
+                payoff1, payoff2 = 0, 0
+            else:
+                # Calculate similarities
+                communion_similarity = np.exp(
+                    -self.circular_config.w_c * (action2[0] - action1[0]) ** 2
+                )
+                agency_similarity = np.exp(
+                    -self.circular_config.w_a * (action2[1] + action1[1]) ** 2
+                )
+
+                payoff = self.circular_config.max_payoff * (
+                    communion_similarity * agency_similarity
+                )
+                payoff1 = payoff2 = payoff  # Same payoff for both agents for now
+
+            self.agent1.update(payoff1)
+            self.agent2.update(payoff2)
+
+            return action1, action2, payoff1, payoff2

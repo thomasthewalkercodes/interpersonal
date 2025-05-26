@@ -9,16 +9,20 @@ import matplotlib.pyplot as plt
 import nashpy as nash
 from Configurations import (
     QLearningConfig,
-    config1,
-    config2,
+    GameConfig,
+    test_config,
     N_ROUNDS,
+    TestConfiguration,  # Add this import
     A1,
     A2,
-    TestConfiguration,
-    test_config,
 )
-from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
+from agent_thinking.Q_learning import (
+    QLearningAgent,
+    ContinuousQLearningAgent,
+    GameEnvironment,
+)
 from visualization.game_plots import GameVisualizer
+from visualization.map_plots import CircularGameVisualizer  # Add this import
 import pandas as pd
 
 # Add the project root to Python path
@@ -99,58 +103,41 @@ def run_simulation_batch(test_config: TestConfiguration):
 
 def main():
     try:
-        # Create game and find all equilibria
-        game = nash.Game(A1, A2)
-        equilibria = list(game.support_enumeration())
+        game_config = GameConfig()  # Create new game config instance
 
-        if not equilibria:
-            print("Error: No Nash equilibria found")
-            return
+        # Convert base_config dictionary to QLearningConfig object
+        q_config = QLearningConfig(
+            alpha=test_config.base_config["alpha"],
+            beta=test_config.base_config["beta"],
+            gamma=test_config.base_config["gamma"],
+            rho=test_config.base_config["rho"],
+            lambda_val=test_config.base_config["lambda_val"],
+            ema_weight=test_config.base_config["ema_weight"],
+            prior_weight=test_config.base_config["prior_weight"],
+        )
 
-        # Display all equilibria
-        print("\n=== Nash Equilibrium Analysis ===")
-        for i, (p, q) in enumerate(equilibria, 1):
-            print(f"\nEquilibrium {i}:")
-            print(f"Player 1 strategy (Up, Down): ({p[0]:.4f}, {p[1]:.4f})")
-            print(f"Player 2 strategy (Left, Right): ({q[0]:.4f}, {q[1]:.4f})")
+        if game_config.game_type == "matrix":
+            # Create matrix game agents
+            agent1 = QLearningAgent(q_config, True, (A1, A2))
+            agent2 = QLearningAgent(q_config, False, (A1, A2))
+        else:
+            # Create continuous game agents
+            agent1 = ContinuousQLearningAgent(q_config, True)
+            agent2 = ContinuousQLearningAgent(q_config, False)
 
-            # Identify if pure or mixed
-            is_pure = all(x in [0.0, 1.0] for x in np.concatenate([p, q]))
-            print(f"Type: {'Pure' if is_pure else 'Mixed'} Strategy")
-
-        print("\n" + "=" * 30 + "\n")
-
-        # Use first equilibrium for simulation
-        p_init, q_init = equilibria[0]
-
-        # Initialize Q-learning simulation with payoff matrices
-        agent1 = QLearningAgent(config1, is_player1=True, payoff_matrices=(A1, A2))
-        agent2 = QLearningAgent(config2, is_player1=False, payoff_matrices=(A1, A2))
-        game = GameEnvironment(A1, A2, agent1, agent2)
-
-        # Store initial joint probabilities
-        initial_probs = {
-            "UL": p_init[0] * q_init[0],
-            "UR": p_init[0] * q_init[1],
-            "DL": p_init[1] * q_init[0],
-            "DR": p_init[1] * q_init[1],
-        }
+        # Initialize game environment
+        game = GameEnvironment(game_config, agent1, agent2)
 
         # Initialize history tracking
-        actions1 = ["Up" if np.random.random() < p_init[0] else "Down"]
-        actions2 = ["Left" if np.random.random() < q_init[0] else "Right"]
-        idx1, idx2 = (
-            0 if actions1[0] == "Up" else 1,
-            0 if actions2[0] == "Left" else 1,
-        )
-        payoffs1 = [A1[idx1, idx2]]
-        payoffs2 = [A2[idx1, idx2]]
+        actions1, actions2 = [], []
+        payoffs1, payoffs2 = [], []
 
-        print("=== Starting Q-Learning Simulation ===")
+        print("=== Starting Simulation ===")
+        print(f"Game Type: {game_config.game_type}")
         print(f"Running {N_ROUNDS} rounds...\n")
 
         # Run simulation
-        for round_num in range(1, N_ROUNDS):
+        for round_num in range(N_ROUNDS):
             action1, action2, payoff1, payoff2 = game.step()
             actions1.append(action1)
             actions2.append(action2)
@@ -158,9 +145,7 @@ def main():
             payoffs2.append(payoff2)
 
             if round_num % 200 == 0:
-                print(
-                    f"Round {round_num}: Actions({action1}, {action2}), Payoffs({payoff1}, {payoff2})"
-                )
+                print(f"Round {round_num}: Payoffs({payoff1:.2f}, {payoff2:.2f})")
 
         # Display results
         print("\n=== Simulation Complete ===")
@@ -168,8 +153,14 @@ def main():
         print(f"Average Payoff Player 2: {np.mean(payoffs2):.4f}")
 
         # Create visualization
-        visualizer = GameVisualizer(N_ROUNDS)
-        visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
+        if game_config.game_type == "circular":
+            visualizer = CircularGameVisualizer(N_ROUNDS)
+            visualizer.create_analysis_plots(actions1, actions2, payoffs1, payoffs2)
+        else:
+            visualizer = GameVisualizer(N_ROUNDS)
+            visualizer.create_plots(
+                actions1, actions2, payoffs1, payoffs2, game_config.game_type
+            )
 
     except ImportError:
         print("Error: Required packages not installed.")

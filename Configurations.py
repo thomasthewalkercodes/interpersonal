@@ -1,11 +1,31 @@
 import numpy as np
 from dataclasses import dataclass
 from typing import List, Dict
-
+from agent_thinking.Circular_game_environment import CircularGameConfig
 
 A1 = np.array([[3, 1], [1, 2]])  # Player 1's payoff matrix
 A2 = np.array([[3, 1], [1, 2]])  # Player 2's payoff matrix
 N_ROUNDS = 1000
+
+
+@dataclass
+class GameConfig:
+    """Game type configuration"""
+
+    game_type: str = "circular"  # "matrix" or "circular"
+    matrix_config: Dict = None
+    circular_config: CircularGameConfig = None
+
+    def __post_init__(self):
+        if self.game_type == "matrix":
+            if self.matrix_config is None:
+                self.matrix_config = {
+                    "A1": A1,
+                    "A2": A2,
+                }
+        elif self.game_type == "circular":
+            if self.circular_config is None:
+                self.circular_config = CircularGameConfig()
 
 
 @dataclass
@@ -47,14 +67,14 @@ config2 = QLearningConfig(
 class TestConfiguration:
     """Configuration for multiple test runs"""
 
-    n_repetitions: int = 20  # Number of times to repeat each configuration
-    n_rounds: int = 1000  # Number of rounds per repetition
-    variable_ranges: Dict[str, List[float]] = None  # Values for each variable to test
-    base_config: Dict[str, float] = None  # Base configuration for non-tested parameters
+    n_repetitions: int = 20
+    n_rounds: int = 1000
+    variable_ranges: Dict[str, List[float]] = None
+    base_config: Dict[str, float] = None
+    game_config: GameConfig = None  # Changed from game_config to GameConfig
 
     def __post_init__(self):
         if self.base_config is None:
-            # Default base configuration
             self.base_config = {
                 "alpha": 0.2,
                 "beta": 2.0,
@@ -64,6 +84,10 @@ class TestConfiguration:
                 "ema_weight": 0.1,
                 "prior_weight": 0,
             }
+        if self.game_config is None:
+            self.game_config = (
+                GameConfig()
+            )  # Changed from game_config() to GameConfig()
 
 
 # Define default test configuration
