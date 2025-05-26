@@ -2,12 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import seaborn as sns
+from Configurations import VisualizationConfig, GameConfig  # Add this import
 
 
 class CircularGameVisualizer:
-    def __init__(self, n_rounds: int):
+    def __init__(
+        self, n_rounds: int, viz_config: VisualizationConfig, game_config: GameConfig
+    ):
         self.n_rounds = n_rounds
-        # Remove seaborn style setting and use a standard matplotlib style
+        self.viz_config = viz_config
+        self.game_config = game_config
         plt.style.use("default")
 
     def create_analysis_plots(self, actions1, actions2, payoffs1, payoffs2):
@@ -125,8 +129,27 @@ class CircularGameVisualizer:
         ax.grid(True)
         ax.legend()
 
+    def _calculate_payoff_landscape(self, x1, y1, agent_config):
+        """Calculate payoff landscape for given agent position and weights"""
+        x = np.linspace(-1, 1, 100)
+        y = np.linspace(-1, 1, 100)
+        X, Y = np.meshgrid(x, y)
+
+        dist = np.sqrt(X**2 + Y**2)
+        norm_factor = np.maximum(1, dist)
+        X_norm = X / norm_factor
+        Y_norm = Y / norm_factor
+
+        communion_similarity = np.exp(-(agent_config.w_c * (X_norm - x1) ** 2))
+        agency_similarity = np.exp(-(agent_config.w_a * (Y_norm + y1) ** 2))
+        payoff = agent_config.max_payoff * (communion_similarity * agency_similarity)
+
+        circle_mask = dist > 1
+        payoff[circle_mask] = np.nan
+
+        return X, Y, payoff
+
     def _create_movement_animation(self, actions1, actions2):
-        """Create animation of agent movements"""
         fig, ax = plt.subplots(figsize=(8, 8))
         ax.set_xlim(-1.1, 1.1)
         ax.set_ylim(-1.1, 1.1)
@@ -137,28 +160,66 @@ class CircularGameVisualizer:
         x1, y1 = zip(*actions1)
         x2, y2 = zip(*actions2)
 
+        # Initialize heatmap if enabled
+        heatmap = None
+        if self.viz_config.show_heatmap:
+            agent_config = (
+                self.game_config.circular_config.agent1_config
+                if self.viz_config.show_agent1_heatmap
+                else self.game_config.circular_config.agent2_config
+            )
+            X, Y, payoff = self._calculate_payoff_landscape(x1[0], y1[0], agent_config)
+            heatmap = ax.contourf(X, Y, payoff, levels=50, cmap="viridis", alpha=0.3)
+            plt.colorbar(
+                heatmap,
+                label=f"{'Agent 1' if self.viz_config.show_agent1_heatmap else 'Agent 2'}'s Potential Payoff",
+            )
+
         (line1,) = ax.plot([], [], "bo-", label="Agent 1", alpha=0.6)
         (line2,) = ax.plot([], [], "ro-", label="Agent 2", alpha=0.6)
 
         def init():
             line1.set_data([], [])
             line2.set_data([], [])
-            return line1, line2
+            return (line1, line2)
 
         def animate(i):
-            window = 20  # Show last 20 positions
+            window = self.viz_config.trail_length
             start = max(0, i - window)
             line1.set_data(x1[start:i], y1[start:i])
             line2.set_data(x2[start:i], y2[start:i])
-            return line1, line2
+
+            # Update heatmap if enabled
+            if self.viz_config.show_heatmap and self.viz_config.update_heatmap:
+                for coll in ax.collections:
+                    coll.remove()
+                agent_config = (
+                    self.game_config.circular_config.agent1_config
+                    if self.viz_config.show_agent1_heatmap
+                    else self.game_config.circular_config.agent2_config
+                )
+                X, Y, payoff = self._calculate_payoff_landscape(
+                    x1[i], y1[i], agent_config
+                )
+                ax.contourf(X, Y, payoff, levels=50, cmap="viridis", alpha=0.3)
+
+            return (line1, line2)
 
         anim = FuncAnimation(
-            fig, animate, init_func=init, frames=len(x1), interval=20, blit=True
+            fig,
+            animate,
+            init_func=init,
+            frames=len(x1),
+            interval=self.viz_config.animation_interval,
+            blit=False,
         )
 
+        agent_label = "Agent 1" if self.viz_config.show_agent1_heatmap else "Agent 2"
         ax.set_xlabel("Communion")
         ax.set_ylabel("Agency")
-        ax.set_title("Agent Movement Animation")
+        ax.set_title(
+            f"Agent Movement Animation\nShowing {agent_label}'s Payoff Landscape"
+        )
         ax.grid(True)
         ax.legend()
         plt.show()

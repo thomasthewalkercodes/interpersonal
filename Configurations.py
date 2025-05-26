@@ -9,6 +9,29 @@ N_ROUNDS = 1000
 
 
 @dataclass
+class CircularAgentConfig:
+    """Configuration for a single agent in circular game"""
+
+    w_c: float = 1.0  # communion weight
+    w_a: float = 1.0  # agency weight
+    max_payoff: float = 10.0
+
+
+@dataclass
+class CircularGameConfig:
+    """Configuration for circular interpersonal game"""
+
+    agent1_config: CircularAgentConfig = None
+    agent2_config: CircularAgentConfig = None
+
+    def __post_init__(self):
+        if self.agent1_config is None:
+            self.agent1_config = CircularAgentConfig()
+        if self.agent2_config is None:
+            self.agent2_config = CircularAgentConfig(w_c=0.5, w_a=2.0)
+
+
+@dataclass
 class GameConfig:
     """Game type configuration"""
 
@@ -44,25 +67,37 @@ class QLearningConfig:
 # Default configurations for agents
 config1 = QLearningConfig(
     alpha=0.2,
-    beta=0.8,
+    beta=3,
     gamma=0.88,
-    rho=0,
-    lambda_val=1,
+    rho=0.2,
+    lambda_val=2,
     ema_weight=0.1,
     prior_weight=0,
 )
 
 config2 = QLearningConfig(
-    alpha=0.2,
-    beta=0.8,
+    alpha=0.3,
+    beta=3,  # Different beta for agent 2
     gamma=0.88,
-    rho=0,
-    lambda_val=1,
+    rho=0.2,
+    lambda_val=2,
     ema_weight=0.1,
     prior_weight=0,
 )
 
 
+@dataclass
+class VisualizationConfig:
+    """Configuration for visualization options"""
+
+    show_heatmap: bool = True
+    show_agent1_heatmap: bool = True  # Toggle between agent 1 and 2 heatmap
+    update_heatmap: bool = True  # Whether to update heatmap during animation
+    animation_interval: int = 20  # ms between frames
+    trail_length: int = 20  # Number of previous positions to show
+
+
+# Update TestConfiguration to include visualization settings
 @dataclass
 class TestConfiguration:
     """Configuration for multiple test runs"""
@@ -72,6 +107,7 @@ class TestConfiguration:
     variable_ranges: Dict[str, List[float]] = None
     base_config: Dict[str, float] = None
     game_config: GameConfig = None  # Changed from game_config to GameConfig
+    viz_config: VisualizationConfig = None
 
     def __post_init__(self):
         if self.base_config is None:
@@ -88,6 +124,8 @@ class TestConfiguration:
             self.game_config = (
                 GameConfig()
             )  # Changed from game_config() to GameConfig()
+        if self.viz_config is None:
+            self.viz_config = VisualizationConfig()
 
 
 # Define default test configuration
@@ -100,11 +138,26 @@ test_config = TestConfiguration(
     },
     base_config={
         "alpha": 0.2,
-        "beta": 2.0,
+        "beta": 3.0,
         "gamma": 0.9,
         "rho": 0.0,
         "lambda_val": 2.25,
         "ema_weight": 0.1,
         "prior_weight": 0,
     },
+    game_config=GameConfig(
+        game_type="circular",
+        circular_config=CircularGameConfig(
+            agent1_config=CircularAgentConfig(
+                w_c=1,  #  1 Agent 1 prefers strong communion matching
+                w_a=1,  # 0.5 But cares less about agency mirroring
+                max_payoff=10.0,
+            ),
+            agent2_config=CircularAgentConfig(
+                w_c=1,  # 0.5 Agent 2 cares less about communion matching
+                w_a=1,  # 2 But strongly prefers agency mirroring
+                max_payoff=10.0,
+            ),
+        ),
+    ),
 )

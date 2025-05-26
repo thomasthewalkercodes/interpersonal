@@ -15,6 +15,8 @@ from Configurations import (
     TestConfiguration,  # Add this import
     A1,
     A2,
+    config1,
+    config2,
 )
 from agent_thinking.Q_learning import (
     QLearningAgent,
@@ -103,27 +105,16 @@ def run_simulation_batch(test_config: TestConfiguration):
 
 def main():
     try:
-        game_config = GameConfig()  # Create new game config instance
-
-        # Convert base_config dictionary to QLearningConfig object
-        q_config = QLearningConfig(
-            alpha=test_config.base_config["alpha"],
-            beta=test_config.base_config["beta"],
-            gamma=test_config.base_config["gamma"],
-            rho=test_config.base_config["rho"],
-            lambda_val=test_config.base_config["lambda_val"],
-            ema_weight=test_config.base_config["ema_weight"],
-            prior_weight=test_config.base_config["prior_weight"],
-        )
+        game_config = test_config.game_config  # Use game config from test_config
 
         if game_config.game_type == "matrix":
-            # Create matrix game agents
-            agent1 = QLearningAgent(q_config, True, (A1, A2))
-            agent2 = QLearningAgent(q_config, False, (A1, A2))
+            # Create matrix game agents with different configs
+            agent1 = QLearningAgent(config1, True, (A1, A2))
+            agent2 = QLearningAgent(config2, False, (A1, A2))
         else:
-            # Create continuous game agents
-            agent1 = ContinuousQLearningAgent(q_config, True)
-            agent2 = ContinuousQLearningAgent(q_config, False)
+            # Create continuous game agents with different configs
+            agent1 = ContinuousQLearningAgent(config1, True)
+            agent2 = ContinuousQLearningAgent(config2, False)
 
         # Initialize game environment
         game = GameEnvironment(game_config, agent1, agent2)
@@ -154,7 +145,9 @@ def main():
 
         # Create visualization
         if game_config.game_type == "circular":
-            visualizer = CircularGameVisualizer(N_ROUNDS)
+            visualizer = CircularGameVisualizer(
+                N_ROUNDS, test_config.viz_config, test_config.game_config
+            )
             visualizer.create_analysis_plots(actions1, actions2, payoffs1, payoffs2)
         else:
             visualizer = GameVisualizer(N_ROUNDS)
