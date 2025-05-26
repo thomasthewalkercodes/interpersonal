@@ -29,7 +29,7 @@ config1 = QLearningConfig(
     rho=0,
     lambda_val=1,
     ema_weight=0.1,
-    prior_weight=0.2,
+    prior_weight=0,
 )
 
 config2 = QLearningConfig(
@@ -39,7 +39,7 @@ config2 = QLearningConfig(
     rho=0,
     lambda_val=1,
     ema_weight=0.1,
-    prior_weight=0.2,
+    prior_weight=0,
 )
 
 
@@ -50,7 +50,6 @@ class TestConfiguration:
     n_repetitions: int = 20  # Number of times to repeat each configuration
     n_rounds: int = 1000  # Number of rounds per repetition
     variable_ranges: Dict[str, List[float]] = None  # Values for each variable to test
-    save_individual_data: bool = True  # Whether to save round-by-round data
     base_config: Dict[str, float] = None  # Base configuration for non-tested parameters
 
     def __post_init__(self):
@@ -63,35 +62,8 @@ class TestConfiguration:
                 "rho": 0.0,
                 "lambda_val": 2.25,
                 "ema_weight": 0.1,
-                "prior_weight": 0.2,
+                "prior_weight": 0,
             }
-
-        if self.variable_ranges is None:
-            # Default ranges for testing different parameters
-            self.variable_ranges = {
-                "alpha": [0.1],
-                "beta": [1.0],
-            }
-
-    def generate_configs(self) -> List[Dict]:
-        """Generate all combinations of specified variables"""
-        from itertools import product
-
-        # Get all combinations of values for the specified variables
-        var_names = list(self.variable_ranges.keys())
-        var_values = list(self.variable_ranges.values())
-        combinations = list(product(*var_values))
-
-        configs = []
-        for combo in combinations:
-            # Start with base configuration
-            config = self.base_config.copy()
-            # Update only the variables we're testing
-            for var_name, value in zip(var_names, combo):
-                config[var_name] = value
-            configs.append(config)
-
-        return configs
 
 
 # Define default test configuration
@@ -99,8 +71,8 @@ test_config = TestConfiguration(
     n_repetitions=5,
     n_rounds=1000,
     variable_ranges={
-        "alpha": [0.1, 0.3, 0.8],
-        "beta": [1.0, 2, 3.0],
+        "beta": [1.0, 2.0, 3.0],
+        "lambda_val": [1.0, 2.25, 4.0],
     },
     base_config={
         "alpha": 0.2,
@@ -109,6 +81,6 @@ test_config = TestConfiguration(
         "rho": 0.0,
         "lambda_val": 2.25,
         "ema_weight": 0.1,
-        "prior_weight": 0.2,
+        "prior_weight": 0,
     },
 )

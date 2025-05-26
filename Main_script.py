@@ -15,10 +15,10 @@ from Configurations import (
     A1,
     A2,
     TestConfiguration,
-    test_config,  # Add this import
+    test_config,
 )
 from agent_thinking.Q_learning import QLearningAgent, GameEnvironment
-from visualization.mapping_plot import SimulationResult, ResultMapper
+from visualization.game_plots import GameVisualizer
 import pandas as pd
 
 # Add the project root to Python path
@@ -43,7 +43,7 @@ def calculate_joint_probs(actions1, actions2):
     }
 
 
-def run_simulation_batch(test_config: TestConfiguration) -> ResultMapper:
+def run_simulation_batch(test_config: TestConfiguration):
     """Run multiple simulations with different configurations"""
     results = []
 
@@ -94,7 +94,7 @@ def run_simulation_batch(test_config: TestConfiguration) -> ResultMapper:
             )
             results.append(result)
 
-    return ResultMapper(results)
+    return results
 
 
 def main():
@@ -167,27 +167,12 @@ def main():
         print(f"Average Payoff Player 1: {np.mean(payoffs1):.4f}")
         print(f"Average Payoff Player 2: {np.mean(payoffs2):.4f}")
 
-        # Generate visualizations
-        from visualization.game_plots import GameVisualizer
-
+        # Create visualization
         visualizer = GameVisualizer(N_ROUNDS)
         visualizer.create_plots(actions1, actions2, payoffs1, payoffs2, initial_probs)
 
-        # Add batch simulation and visualization using config from Configurations.py
-        print("\n=== Running Batch Simulations ===")
-        mapper = run_simulation_batch(test_config)
-
-        # Create faceted heatmaps
-        print("\n=== Generating Visualization ===")
-        print("\nCreating comprehensive heatmap...")
-        mapper.create_faceted_heatmap(
-            "payoff_diff"
-        )  # Shows difference with both individual payoffs in text
-
     except ImportError:
-        print(
-            "Error: Required packages not installed. Please run 'pip install nashpy matplotlib seaborn pandas'"
-        )
+        print("Error: Required packages not installed.")
     except Exception as e:
         print(f"Unexpected error: {str(e)}")
 
