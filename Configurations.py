@@ -149,13 +149,13 @@ test_config = TestConfiguration(
         game_type="circular",
         circular_config=CircularGameConfig(
             agent1_config=CircularAgentConfig(
-                w_c=1,  #  1 Agent 1 prefers strong communion matching
-                w_a=1,  # 0.5 But cares less about agency mirroring
+                w_c=0.2,  #  1 Agent 1 prefers strong communion matching
+                w_a=0.2,  # 0.5 But cares less about agency mirroring
                 max_payoff=10.0,
             ),
             agent2_config=CircularAgentConfig(
-                w_c=1,  # 0.5 Agent 2 cares less about communion matching
-                w_a=1,  # 2 But strongly prefers agency mirroring
+                w_c=0.2,  # 0.5 Agent 2 cares less about communion matching
+                w_a=0.2,  # 2 But strongly prefers agency mirroring
                 max_payoff=10.0,
             ),
         ),
