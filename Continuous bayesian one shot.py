@@ -350,37 +350,108 @@ class GameSimulator:
         plt.show()
 
 
-# Example usage and configuration
-def create_example_simulation():
-    """Create an example simulation with configurable parameters"""
+# =============================================================================
+# CONFIGURATION SECTION - CHANGE YOUR SETTINGS HERE
+# =============================================================================
 
-    # Define payoff matrices
-    # Format: [[CC, CD], [DC, DD]] where first letter is own action, second is opponent's
+# Define your payoff matrices here
+# Format: [[Cooperate_Cooperate, Cooperate_Defect], [Defect_Cooperate, Defect_Defect]]
 
-    # Classic Prisoner's Dilemma
-    prisoner_payoffs = [
-        [3, 0],
-        [5, 1],
-    ]  # Temptation=5, Reward=3, Punishment=1, Sucker=0
+# Predefined game types (uncomment the one you want to use):
+PRISONER_DILEMMA = [
+    [3, 0],
+    [5, 1],
+]  # Classic PD: Temptation=5, Reward=3, Punishment=1, Sucker=0
+COORDINATION = [[5, 0], [0, 5]]  # Coordination game: match opponent's action
+STAG_HUNT = [[5, 1], [2, 2]]  # Stag hunt: cooperation risky but rewarding
+CHICKEN = [[2, 1], [4, 0]]  # Chicken game: dare the opponent to swerve first
+BATTLE_SEXES = [[3, 1], [0, 2]]  # Battle of sexes: prefer different outcomes
+ZERO_SUM1 = [[2, 1], [1, 2]]  # Zero-sum: pure competition
+ZERO_SUM2 = [[1, 2], [2, 1]]
 
-    # Coordination Game
-    coordination_payoffs = [[3, 0], [0, 2]]  # Prefer to match opponent's action
+# AGENT 1 CONFIGURATION
+AGENT1_NAME = "Alice"
+AGENT1_PAYOFFS = ZERO_SUM1  # Choose from above or create custom [[a,b],[c,d]]
+AGENT1_PRIOR_ALPHA = 2  # Higher = more optimistic about opponent cooperation
+AGENT1_PRIOR_BETA = 2  # Higher = more pessimistic about opponent cooperation
+AGENT1_RATIONALITY = 3.0  # Higher = more optimal/calculated decisions
 
-    # Create agents with different priors and rationality
+# AGENT 2 CONFIGURATION
+AGENT2_NAME = "Bob"
+AGENT2_PAYOFFS = ZERO_SUM2  # Can be different from Agent 1 for asymmetric games
+AGENT2_PRIOR_ALPHA = 2  # Higher = more optimistic about opponent cooperation
+AGENT2_PRIOR_BETA = 2  # Higher = more pessimistic about opponent cooperation
+AGENT2_RATIONALITY = 3.0  # Higher = more optimal/calculated decisions
+
+# SIMULATION SETTINGS
+NUM_ROUNDS = 300  # How many rounds to simulate
+LEARNING_RATE = 0.7  # How quickly agents update beliefs (0.1-0.9)
+
+# =============================================================================
+# END CONFIGURATION SECTION
+# =============================================================================
+
+
+def create_simulation():
+    """Create simulation with the configured parameters above"""
+
+    # Create agents with your configured settings
     agent1 = BayesianGameAgent(
-        name="Alice",
-        own_payoffs=prisoner_payoffs,
-        prior_alpha=1,  # Skeptical prior (expects opponent to be selfish)
-        prior_beta=3,
-        rationality=3.0,  # Moderately rational
+        name=AGENT1_NAME,
+        own_payoffs=AGENT1_PAYOFFS,
+        prior_alpha=AGENT1_PRIOR_ALPHA,
+        prior_beta=AGENT1_PRIOR_BETA,
+        rationality=AGENT1_RATIONALITY,
     )
 
     agent2 = BayesianGameAgent(
-        name="Bob",
-        own_payoffs=prisoner_payoffs,
-        prior_alpha=3,  # Optimistic prior (expects opponent to be cooperative)
-        prior_beta=1,
-        rationality=5.0,  # Highly rational
+        name=AGENT2_NAME,
+        own_payoffs=AGENT2_PAYOFFS,
+        prior_alpha=AGENT2_PRIOR_ALPHA,
+        prior_beta=AGENT2_PRIOR_BETA,
+        rationality=AGENT2_RATIONALITY,
+    )
+
+    return GameSimulator(agent1, agent2)
+
+
+def create_custom_simulation(
+    agent1_payoffs,
+    agent2_payoffs,
+    agent1_priors=(2, 2),
+    agent2_priors=(2, 2),
+    agent1_rationality=3.0,
+    agent2_rationality=3.0,
+    agent1_name="Agent1",
+    agent2_name="Agent2",
+):
+    """
+    Create a custom simulation with specific parameters.
+
+    Example usage:
+    sim = create_custom_simulation(
+        agent1_payoffs=[[4, 1], [6, 2]],
+        agent2_payoffs=[[3, 0], [5, 1]],
+        agent1_priors=(1, 4),  # (alpha, beta) - pessimistic
+        agent2_priors=(4, 1),  # (alpha, beta) - optimistic
+        agent1_rationality=2.0,
+        agent2_rationality=6.0
+    )
+    """
+    agent1 = BayesianGameAgent(
+        name=agent1_name,
+        own_payoffs=agent1_payoffs,
+        prior_alpha=agent1_priors[0],
+        prior_beta=agent1_priors[1],
+        rationality=agent1_rationality,
+    )
+
+    agent2 = BayesianGameAgent(
+        name=agent2_name,
+        own_payoffs=agent2_payoffs,
+        prior_alpha=agent2_priors[0],
+        prior_beta=agent2_priors[1],
+        rationality=agent2_rationality,
     )
 
     return GameSimulator(agent1, agent2)
@@ -388,18 +459,32 @@ def create_example_simulation():
 
 # Run example simulation
 if __name__ == "__main__":
-    # Create and run simulation
-    sim = create_example_simulation()
+    # Create and run simulation using the configuration at the top
+    sim = create_simulation()
+
+    print("=== BAYESIAN GAME THEORY SIMULATION ===")
+    print(f"Game: {AGENT1_NAME} vs {AGENT2_NAME}")
+    print(f"Rounds: {NUM_ROUNDS}")
+    print()
+
+    print("Payoff Matrices:")
+    print(f"{AGENT1_NAME}: {AGENT1_PAYOFFS}")
+    print(f"{AGENT2_NAME}: {AGENT2_PAYOFFS}")
+    print()
 
     print("Initial beliefs:")
     mean1, std1 = sim.agent1.get_belief_stats()
     mean2, std2 = sim.agent2.get_belief_stats()
-    print(f"Alice expects Bob's cooperativeness: {mean1:.3f} ± {std1:.3f}")
-    print(f"Bob expects Alice's cooperativeness: {mean2:.3f} ± {std2:.3f}")
+    print(
+        f"{AGENT1_NAME} expects {AGENT2_NAME}'s cooperativeness: {mean1:.3f} ± {std1:.3f}"
+    )
+    print(
+        f"{AGENT2_NAME} expects {AGENT1_NAME}'s cooperativeness: {mean2:.3f} ± {std2:.3f}"
+    )
     print()
 
     # Run simulation
-    sim.simulate(50)
+    sim.simulate(NUM_ROUNDS)
 
     # Plot results
     sim.plot_game_summary()
@@ -408,13 +493,50 @@ if __name__ == "__main__":
     sim.agent1.plot_current_belief_distribution()
     sim.agent2.plot_current_belief_distribution()
 
-    print("\nFinal Results:")
-    print(
-        f"Total payoffs - Alice: {sum(r['agent1_payoff'] for r in sim.game_history)}, "
-        f"Bob: {sum(r['agent2_payoff'] for r in sim.game_history)}"
-    )
+    print("\n=== FINAL RESULTS ===")
+    total1 = sum(r["agent1_payoff"] for r in sim.game_history)
+    total2 = sum(r["agent2_payoff"] for r in sim.game_history)
+    print(f"Total payoffs - {AGENT1_NAME}: {total1}, {AGENT2_NAME}: {total2}")
 
     final_mean1, final_std1 = sim.agent1.get_belief_stats()
     final_mean2, final_std2 = sim.agent2.get_belief_stats()
-    print(f"Alice's final belief about Bob: {final_mean1:.3f} ± {final_std1:.3f}")
-    print(f"Bob's final belief about Alice: {final_mean2:.3f} ± {final_std2:.3f}")
+    print(
+        f"{AGENT1_NAME}'s final belief about {AGENT2_NAME}: {final_mean1:.3f} ± {final_std1:.3f}"
+    )
+    print(
+        f"{AGENT2_NAME}'s final belief about {AGENT1_NAME}: {final_mean2:.3f} ± {final_std2:.3f}"
+    )
+
+    # Show cooperation rates
+    coop1 = sum(1 for r in sim.game_history if r["agent1_action"] == "C") / len(
+        sim.game_history
+    )
+    coop2 = sum(1 for r in sim.game_history if r["agent2_action"] == "C") / len(
+        sim.game_history
+    )
+    print(f"Cooperation rates - {AGENT1_NAME}: {coop1:.1%}, {AGENT2_NAME}: {coop2:.1%}")
+
+    print("\n=== QUICK EXPERIMENTS ===")
+    print("Try changing the configuration at the top of the file:")
+    print("- Different game types (COORDINATION, STAG_HUNT, etc.)")
+    print("- Asymmetric payoffs (different matrices for each agent)")
+    print("- Different priors (optimistic vs pessimistic agents)")
+    print("- Rationality levels (how optimal vs random)")
+    print("- Learning rates (how quickly beliefs update)")
+
+    print("\nOr use create_custom_simulation() for one-off experiments!")
+
+    # Example of custom simulation
+    print("\n" + "=" * 50)
+    print("BONUS: Running a quick asymmetric game example...")
+    custom_sim = create_custom_simulation(
+        agent1_payoffs=COORDINATION,  # Alice plays coordination
+        agent2_payoffs=PRISONER_DILEMMA,  # Bob plays prisoner's dilemma
+        agent1_priors=(4, 1),  # Alice is optimistic
+        agent2_priors=(1, 4),  # Bob is pessimistic
+        agent1_name="Coordinator Alice",
+        agent2_name="Competitive Bob",
+    )
+
+    custom_sim.simulate(20)
+    print("This shows how different game types interact!")
