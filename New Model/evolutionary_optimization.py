@@ -1,14 +1,13 @@
-from dataclasses import dataclass
 import numpy as np
 import matplotlib.pyplot as plt
-from typing import List, Tuple, Dict
+from dataclasses import dataclass
+from typing import List, Dict, Tuple
 from Reinforcement_learning import (
     LearningConfig,
     WarmthLearningAgent,
     WarmthActionSpace,
 )
 from Configurations import run_simulation, SimulationConfig
-from ml_algo_plot import plot_evolution_history
 
 
 @dataclass
@@ -29,10 +28,8 @@ class EvolutionConfig:
     generations: int = 50
     tournament_rounds: int = 500
     mutation_rate: float = 0.15
-    mutation_strength: float = 0.2  # How much to mutate parameters
-    elite_size: int = 2  # Number of best individuals to preserve
-
-    # Parameter ranges for evolution
+    mutation_strength: float = 0.2
+    elite_size: int = 2
     param_ranges: Dict[str, Tuple[float, float]] = None
 
     def __post_init__(self):
@@ -66,24 +63,6 @@ class Individual:
             for key, ranges in param_ranges.items()
         }
         return cls(params)
-
-
-def evaluate_fitness(
-    individual: Individual,
-    opponents: List[WarmthLearningAgent],
-    sim_config: SimulationConfig,
-) -> float:
-    """Run round-robin tournament and return total points"""
-    total_points = 0
-    action_space = WarmthActionSpace(n_bins=sim_config.n_bins)
-    agent = WarmthLearningAgent(individual.config, action_space, "Evolving")
-
-    # Play against each opponent
-    for opp in opponents:
-        payoffs1, _ = run_simulation(agent, opp, sim_config)
-        total_points += sum(payoffs1)
-
-    return total_points
 
 
 class GeneticOptimizer:
@@ -122,27 +101,39 @@ class GeneticOptimizer:
                 new_value = individual.params[param] + delta * (max_val - min_val)
                 individual.params[param] = np.clip(new_value, min_val, max_val)
 
+    def evaluate_fitness(
+        self,
+        individual: Individual,
+        opponents: List[WarmthLearningAgent],
+        sim_config: SimulationConfig,
+    ) -> float:
+        """Evaluate individual's fitness against opponent pool"""
+        total_points = 0
+        action_space = WarmthActionSpace(n_bins=sim_config.n_bins)
+        agent = WarmthLearningAgent(individual.config, action_space, "Evolving")
+
+        for opp in opponents:
+            payoffs1, _ = run_simulation(agent, opp, sim_config)
+            total_points += sum(payoffs1)
+
+        return total_points
+
     def evolve(
         self, opponents: List[WarmthLearningAgent], sim_config: SimulationConfig
-    ):
+    ) -> Individual:
         """Run one generation of evolution"""
         # Evaluate current population
         for ind in self.population:
-            ind.fitness = evaluate_fitness(ind, opponents, sim_config)
+            ind.fitness = self.evaluate_fitness(ind, opponents, sim_config)
 
         # Sort by fitness
         self.population.sort(key=lambda x: x.fitness, reverse=True)
-
-        # Keep track of best solution
         best = self.population[0]
 
         # Create new population
         new_population = []
-
-        # Elitism: keep best individuals
         new_population.extend(self.population[: self.config.elite_size])
 
-        # Fill rest of population with offspring
         while len(new_population) < self.config.population_size:
             parent1 = self.tournament_select()
             parent2 = self.tournament_select()
@@ -152,7 +143,6 @@ class GeneticOptimizer:
 
         self.population = new_population
         self.generation += 1
-
         return best
 
 
@@ -180,9 +170,6 @@ def run_evolution(opponent_configs: List[OpponentConfig]):
                 "best_params": best.params.copy(),
             }
         )
-
-        if gen % 5 == 0:  # Only print every 5 generations
-            print(f"Generation {gen}/{evo_config.generations}")
 
     print("\nEvolution complete!")
     print("\nBest solution found:")
@@ -212,10 +199,10 @@ def create_opponent_pool(
 
 
 if __name__ == "__main__":
-    # Define different types of opponents
+    # Define opponent configurations
     opponent_configs = [
         OpponentConfig(
-            prior_expectation=0.8,
+            prior_expectation=0.2,
             prior_strength=30.0,
             name="Cold",
         ),
@@ -225,7 +212,7 @@ if __name__ == "__main__":
             name="Warm",
         ),
         OpponentConfig(
-            prior_expectation=0.8,
+            prior_expectation=0.5,
             prior_strength=10.0,
             name="Flexible",
         ),
@@ -235,5 +222,7 @@ if __name__ == "__main__":
     history = run_evolution(opponent_configs)
 
     # Plot results
+    from ml_algo_plot import plot_evolution_history
+
     fig = plot_evolution_history(history)
     plt.show()

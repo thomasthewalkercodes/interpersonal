@@ -75,10 +75,9 @@ def run_simulation(
     """Run simulation for specified number of rounds"""
     payoffs1 = []
     payoffs2 = []
-    actions1 = []  # Add this to store actions
-    actions2 = []  # Add this to store actions
+    actions1 = []
+    actions2 = []
 
-    print(f"\nRunning simulation for {sim_config.n_rounds} rounds...")
     for round_num in range(sim_config.n_rounds):
         # Get actions
         w1 = agent1.choose_action()
@@ -105,17 +104,9 @@ def run_simulation(
         payoffs1.append(payoff1)
         payoffs2.append(payoff2)
 
-        # Print progress
-        if round_num % 100 == 0:
-            print(f"Round {round_num}: Payoffs({payoff1:.2f}, {payoff2:.2f})")
-
     # Store action histories in agents
     agent1.action_history = actions1
     agent2.action_history = actions2
-
-    print("\nSimulation complete!")
-    print(f"Average Payoff Agent 1: {sum(payoffs1)/len(payoffs1):.3f}")
-    print(f"Average Payoff Agent 2: {sum(payoffs2)/len(payoffs2):.3f}")
 
     return payoffs1, payoffs2
 
