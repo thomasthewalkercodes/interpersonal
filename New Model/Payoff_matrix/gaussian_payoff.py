@@ -2,7 +2,7 @@ import numpy as np
 
 
 def calculate_warmth_payoff(
-    w1: float, w2: float, alpha: float = 2, beta: float = 5
+    w1: float, w2: float, alpha: float = 4, beta: float = 5
 ) -> float:
     """Calculate payoff for warmth interaction between two agents."""
     # Ensure inputs are in valid range
