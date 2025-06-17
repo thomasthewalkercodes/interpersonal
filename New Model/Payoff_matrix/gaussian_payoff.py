@@ -2,20 +2,32 @@ import numpy as np
 
 
 def calculate_warmth_payoff(
-    w1: float, w2: float, alpha: float = 4, beta: float = 5
+    w1: float, w2: float, alpha: float = 4, beta: float = 10
 ) -> float:
-    """Calculate payoff for warmth interaction between two agents."""
+    """Calculate payoff for warmth interaction between two agents.
+
+    Args:
+        w1: warmth of first agent (0-1)
+        w2: warmth of second agent (0-1)
+        alpha: mismatch penalty factor
+        beta: risk factor weight
+
+    Returns:
+        float: payoff value
+    """
     # Ensure inputs are in valid range
     w1 = np.clip(w1, 0, 1)
     w2 = np.clip(w2, 0, 1)
 
     # Calculate payoff components
     mismatch = (w1 - w2) ** 2
+    warmth_bonus = (w1 + w2) / 4  # Reward for mutual warmth
     risk_factor = w1
     penalty = risk_factor * mismatch * beta
     base_payoff = np.exp(-alpha * mismatch)
 
-    return base_payoff - penalty
+    # Add warmth bonus to base payoff
+    return base_payoff + warmth_bonus - penalty
 
 
 def plot_payoff_heatmap(alpha: float = 2, beta: float = 5):

@@ -12,12 +12,49 @@ from Configurations import run_simulation, SimulationConfig
 
 @dataclass
 class OpponentConfig:
-    """Configuration for opponent agents"""
+    """Configuration for opponent agents with extended parameters"""
 
-    prior_expectation: float
-    prior_strength: float
-    risk_sensitivity: float = 0.3
-    name: str = "Opponent"
+    # Basic parameters
+    name: str = "Warm"
+
+    # Learning parameters
+    learning_rate: float = 0.2  # How quickly they learn (alpha)
+    discount_factor: float = 0.95  # How much they value future rewards (gamma)
+    exploration_rate: float = 0.1  # How much they explore (epsilon)
+
+    # Personality traits
+    prior_expectation: float = 0.5  # Initial warmth expectation
+    prior_strength: float = 10.0  # Strength of initial beliefs
+    risk_sensitivity: float = 0.3  # Aversion to rejection
+    adaptation_speed: float = 0.1  # How quickly they change strategies
+
+    # Memory parameters
+    memory_length: int = 100  # How many past interactions they remember
+    forgetting_rate: float = 0.01  # How quickly they forget old experiences
+
+
+def create_opponent_pool(
+    opponent_configs: List[OpponentConfig], sim_config: SimulationConfig
+) -> List[WarmthLearningAgent]:
+    """Create diverse opponents with different behavioral patterns"""
+    action_space = WarmthActionSpace(n_bins=sim_config.n_bins)
+    opponents = []
+
+    for i, opp_config in enumerate(opponent_configs):
+        config = LearningConfig(
+            alpha=opp_config.learning_rate,
+            gamma=opp_config.discount_factor,
+            epsilon=opp_config.exploration_rate,
+            risk_sensitivity=opp_config.risk_sensitivity,
+            prior_expectation=opp_config.prior_expectation,
+            prior_strength=opp_config.prior_strength,
+        )
+        opponent = WarmthLearningAgent(config, action_space, f"{opp_config.name}_{i}")
+        opponent.memory_length = opp_config.memory_length
+        opponent.forgetting_rate = opp_config.forgetting_rate
+        opponents.append(opponent)
+
+    return opponents
 
 
 @dataclass
@@ -31,6 +68,8 @@ class EvolutionConfig:
     mutation_strength: float = 0.2
     elite_size: int = 2
     param_ranges: Dict[str, Tuple[float, float]] = None
+    smoothing_window: int = 5  # Window for smoothing fitness history
+    convergence_threshold: float = 0.01  # Threshold for detecting convergence
 
     def __post_init__(self):
         if self.param_ranges is None:
@@ -70,6 +109,7 @@ class GeneticOptimizer:
         self.config = evolution_config
         self.population: List[Individual] = []
         self.generation = 0
+        self.best_history = []  # Track best individuals
 
     def initialize_population(self):
         """Create initial random population"""
@@ -93,12 +133,36 @@ class GeneticOptimizer:
                 child_params[param] = parent2.params[param]
         return Individual(child_params)
 
+    def adapt_mutation_rate(self):
+        """Reduce mutation as population converges"""
+        if len(self.best_history) > self.config.smoothing_window:
+            recent_fitness = [
+                ind.fitness
+                for ind in self.best_history[-self.config.smoothing_window :]
+            ]
+            fitness_variance = np.var(recent_fitness)
+
+            # Reduce mutation if population is converging
+            if fitness_variance < self.config.convergence_threshold:
+                self.config.mutation_rate *= 0.95
+                self.config.mutation_strength *= 0.95
+
     def mutate(self, individual: Individual):
-        """Mutate individual parameters"""
+        """Mutate with adaptive strength"""
         for param, (min_val, max_val) in self.config.param_ranges.items():
             if np.random.random() < self.config.mutation_rate:
-                delta = np.random.normal(0, self.config.mutation_strength)
-                new_value = individual.params[param] + delta * (max_val - min_val)
+                # Calculate adaptive mutation strength
+                param_range = max_val - min_val
+                current_value = individual.params[param]
+
+                # Smaller mutations for values near boundaries
+                distance_to_boundary = (
+                    min(current_value - min_val, max_val - current_value) / param_range
+                )
+
+                local_strength = self.config.mutation_strength * distance_to_boundary
+                delta = np.random.normal(0, local_strength)
+                new_value = current_value + delta * param_range
                 individual.params[param] = np.clip(new_value, min_val, max_val)
 
     def evaluate_fitness(
@@ -121,7 +185,7 @@ class GeneticOptimizer:
     def evolve(
         self, opponents: List[WarmthLearningAgent], sim_config: SimulationConfig
     ) -> Individual:
-        """Run one generation of evolution"""
+        """Run one generation with parameter smoothing"""
         # Evaluate current population
         for ind in self.population:
             ind.fitness = self.evaluate_fitness(ind, opponents, sim_config)
@@ -129,14 +193,25 @@ class GeneticOptimizer:
         # Sort by fitness
         self.population.sort(key=lambda x: x.fitness, reverse=True)
         best = self.population[0]
+        self.best_history.append(best)
 
-        # Create new population
+        # Parameter smoothing for elite individuals
+        if len(self.best_history) >= self.config.smoothing_window:
+            recent_best = self.best_history[-self.config.smoothing_window :]
+            for param in best.params:
+                smoothed_value = np.mean([ind.params[param] for ind in recent_best])
+                best.params[param] = smoothed_value
+
+        # Create new population with increased elitism
         new_population = []
         new_population.extend(self.population[: self.config.elite_size])
 
+        self.adapt_mutation_rate()
+
+        # Fill rest of population
         while len(new_population) < self.config.population_size:
-            parent1 = self.tournament_select()
-            parent2 = self.tournament_select()
+            parent1 = self.tournament_select(self.config.tournament_size)
+            parent2 = self.tournament_select(self.config.tournament_size)
             child = self.crossover(parent1, parent2)
             self.mutate(child)
             new_population.append(child)

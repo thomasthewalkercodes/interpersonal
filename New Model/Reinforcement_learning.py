@@ -111,27 +111,47 @@ class WarmthLearningAgent:
         """Update Q-values using Q-learning with prior influence"""
         action_idx = self.action_space.discretize(action)
 
-        # Calculate learning rate based on prior strength
-        effective_alpha = self.config.alpha / (1 + self.belief_strength / 100)
+        # Ensure numerical stability for alpha
+        effective_alpha = np.clip(
+            self.config.alpha / (1 + min(self.belief_strength, 1000) / 100),
+            0.001,  # Minimum learning rate
+            0.999,  # Maximum learning rate
+        )
 
-        # Update expected warmth using exponential moving average
+        # Update expected warmth using clipped values
         other_action = self.action_space.bins[next_state]
-        self.expected_warmth = (
-            1 - effective_alpha
-        ) * self.expected_warmth + effective_alpha * other_action
+        alpha_warmth = np.clip(effective_alpha, 0, 1)
+        self.expected_warmth = np.clip(
+            (1 - alpha_warmth) * self.expected_warmth + alpha_warmth * other_action,
+            0,
+            1,  # Keep warmth between 0 and 1
+        )
 
-        # Gradually reduce prior strength as we get more experience
-        self.belief_strength = max(1.0, self.belief_strength * 0.995)
+        # Update belief strength with clipping
+        self.belief_strength = np.clip(
+            max(1.0, self.belief_strength * 0.995),
+            1.0,  # Minimum strength
+            1000.0,  # Maximum strength
+        )
 
-        # Q-learning update with prior influence
-        old_value = self.q_table[state, action_idx]
-        next_max = np.max(self.q_table[next_state])
-        new_value = (1 - effective_alpha) * old_value + effective_alpha * (
-            reward + self.config.gamma * next_max
+        # Q-learning update with numerical stability
+        old_value = np.clip(self.q_table[state, action_idx], -1000, 1000)
+        next_max = np.clip(np.max(self.q_table[next_state]), -1000, 1000)
+
+        # Calculate new value with clipped components
+        reward_component = np.clip(reward + self.config.gamma * next_max, -1000, 1000)
+        new_value = np.clip(
+            (1 - effective_alpha) * old_value + effective_alpha * reward_component,
+            -1000,
+            1000,  # Reasonable bounds for Q-values
         )
 
         self.q_table[state, action_idx] = new_value
         self.reward_history.append(reward)
 
-        # Decay exploration rate
-        self.epsilon = max(self.config.min_epsilon, self.epsilon * self.config.decay)
+        # Decay exploration rate with clipping
+        self.epsilon = np.clip(
+            max(self.config.min_epsilon, self.epsilon * self.config.decay),
+            self.config.min_epsilon,
+            1.0,
+        )
