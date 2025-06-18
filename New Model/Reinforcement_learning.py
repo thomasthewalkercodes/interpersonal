@@ -36,7 +36,7 @@ class ActionSpace(ABC):
 class WarmthActionSpace(ActionSpace):
     """Handles warmth actions in [0,1] range"""
 
-    def __init__(self, n_bins: int = 10):
+    def __init__(self, n_bins: int = 20):
         self.n_bins = n_bins
         self.bins = np.linspace(0, 1, n_bins)
 
@@ -44,7 +44,7 @@ class WarmthActionSpace(ActionSpace):
         return np.random.random()
 
     def discretize(self, action: float) -> int:
-        return np.digitize(action, self.bins) - 1
+        return int(np.digitize(action, self.bins)) - 1
 
 
 class WarmthLearningAgent:

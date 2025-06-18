@@ -8,6 +8,10 @@ from Reinforcement_learning import (
     WarmthActionSpace,
 )
 from Configurations import run_simulation, SimulationConfig
+from evolution_visualization import (
+    plot_evolution_comparison,
+    plot_opponent_distribution,
+)
 
 
 @dataclass
@@ -33,6 +37,21 @@ class OpponentConfig:
     forgetting_rate: float = 0.01  # How quickly they forget old experiences
 
 
+@dataclass
+class OpponentMix:
+    """Defines the composition of opponent population"""
+
+    type_proportions: Dict[
+        str, float
+    ]  # e.g., {"COLD_RIGID": 0.3, "WARM_FLEXIBLE": 0.7}
+    total_opponents: int = 30
+
+    def __post_init__(self):
+        # Normalize proportions
+        total = sum(self.type_proportions.values())
+        self.type_proportions = {k: v / total for k, v in self.type_proportions.items()}
+
+
 def create_opponent_pool(
     opponent_configs: List[OpponentConfig], sim_config: SimulationConfig
 ) -> List[WarmthLearningAgent]:
@@ -53,6 +72,33 @@ def create_opponent_pool(
         opponent.memory_length = opp_config.memory_length
         opponent.forgetting_rate = opp_config.forgetting_rate
         opponents.append(opponent)
+
+    return opponents
+
+
+def create_mixed_opponent_pool(
+    opponent_mix: OpponentMix, sim_config: SimulationConfig
+) -> List[WarmthLearningAgent]:
+    """Create opponent pool with specified type proportions"""
+    opponents = []
+    action_space = WarmthActionSpace(n_bins=sim_config.n_bins)
+
+    for type_name, proportion in opponent_mix.type_proportions.items():
+        opponent_type = OPPONENT_TYPES[type_name]
+        num_opponents = int(opponent_mix.total_opponents * proportion)
+
+        for i in range(num_opponents):
+            config = LearningConfig(
+                alpha=opponent_type.learning_rate,
+                epsilon=opponent_type.exploration_rate,
+                risk_sensitivity=opponent_type.risk_sensitivity,
+                prior_expectation=opponent_type.prior_expectation,
+                prior_strength=opponent_type.prior_strength,
+            )
+            opponent = WarmthLearningAgent(
+                config, action_space, f"{opponent_type.name}_{i}"
+            )
+            opponents.append(opponent)
 
     return opponents
 
@@ -254,47 +300,82 @@ def run_evolution(opponent_configs: List[OpponentConfig]):
     return history
 
 
-def create_opponent_pool(
-    opponent_configs: List[OpponentConfig], sim_config: SimulationConfig
-) -> List[WarmthLearningAgent]:
-    """Create a pool of opponents from configurations"""
-    action_space = WarmthActionSpace(n_bins=sim_config.n_bins)
-    opponents = []
+class EvolutionExperiment:
+    """Runs evolution experiments with different opponent mixes"""
 
-    for i, opp_config in enumerate(opponent_configs):
-        config = LearningConfig(
-            prior_expectation=opp_config.prior_expectation,
-            prior_strength=opp_config.prior_strength,
-            risk_sensitivity=opp_config.risk_sensitivity,
-        )
-        opponent = WarmthLearningAgent(config, action_space, f"{opp_config.name}_{i}")
-        opponents.append(opponent)
+    def __init__(self, evolution_config: EvolutionConfig):
+        self.config = evolution_config
+        self.results = {}
 
-    return opponents
+    def run_with_mix(self, opponent_mix: OpponentMix, name: str):
+        """Run evolution against specific opponent mix"""
+        sim_config = SimulationConfig(n_rounds=500)
+        opponents = create_mixed_opponent_pool(opponent_mix, sim_config)
+
+        optimizer = GeneticOptimizer(self.config)
+        optimizer.initialize_population()
+
+        history = []
+        for gen in range(self.config.generations):
+            best = optimizer.evolve(opponents, sim_config)
+            history.append(
+                {
+                    "generation": gen,
+                    "best_fitness": best.fitness,
+                    "avg_fitness": np.mean(
+                        [ind.fitness for ind in optimizer.population]
+                    ),
+                    "best_params": best.params.copy(),
+                    "opponent_mix": opponent_mix.type_proportions,
+                }
+            )
+
+        self.results[name] = history
+        return history
+
+    def visualize_results(self):
+        """Create and display visualization of results"""
+        # Evolution comparison
+        fig1 = plot_evolution_comparison(self.results)
+        plt.figure(fig1.number)
+        plt.savefig("evolution_comparison.png")
+        plt.show()
+
+        # Opponent distribution and parameters
+        fig2 = plot_opponent_distribution(self.results)
+        plt.figure(fig2.number)
+        plt.savefig("opponent_distribution.png")
+        plt.show()
 
 
+# Example usage
 if __name__ == "__main__":
-    # Define opponent configurations
-    opponent_configs = [
-        OpponentConfig(
-            prior_expectation=0.2,
-            prior_strength=30.0,
-            name="Cold",
+    # Define different opponent mixes
+    mixes = {
+        "Mostly_Cold": OpponentMix(
+            {"COLD_RIGID": 0.7, "WARM_FLEXIBLE": 0.2, "CAUTIOUS_LEARNER": 0.1}
         ),
-        OpponentConfig(
-            prior_expectation=0.8,
-            prior_strength=30.0,
-            name="Warm",
+        "Balanced": OpponentMix(
+            {
+                "COLD_RIGID": 0.25,
+                "WARM_FLEXIBLE": 0.25,
+                "CAUTIOUS_LEARNER": 0.25,
+                "ERRATIC": 0.25,
+            }
         ),
-        OpponentConfig(
-            prior_expectation=0.5,
-            prior_strength=10.0,
-            name="Flexible",
-        ),
-    ]
+        "Dynamic": OpponentMix({"WARM_FLEXIBLE": 0.4, "ERRATIC": 0.6}),
+    }
 
-    # Run evolution with these opponents
-    history = run_evolution(opponent_configs)
+    # Run experiments
+    experiment = EvolutionExperiment(EvolutionConfig())
+    for mix_name, mix in mixes.items():
+        print(f"\nRunning evolution with {mix_name} mix...")
+        history = experiment.run_with_mix(mix, mix_name)
+
+        # Print best solution for this mix
+        best_individual = max(optimizer.population, key=lambda x: x.fitness)
+        print(f"\nBest parameters for {mix_name}:")
+        print(best_individual.params)
 
     # Plot results
     from ml_algo_plot import plot_evolution_history

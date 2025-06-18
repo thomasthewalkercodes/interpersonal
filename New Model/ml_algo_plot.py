@@ -4,15 +4,14 @@ from typing import List, Dict
 
 
 def plot_evolution_history(history: List[Dict]):
-    """Visualize the evolution progress"""
+    """Visualize the evolution progress with multiple metrics"""
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
+
+    # Plot fitness over generations
     generations = [h["generation"] for h in history]
     best_fitness = [h["best_fitness"] for h in history]
     avg_fitness = [h["avg_fitness"] for h in history]
 
-    # Create figure with two subplots
-    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10))
-
-    # Plot fitness over generations
     ax1.plot(generations, best_fitness, "b-", label="Best Fitness", linewidth=2)
     ax1.plot(generations, avg_fitness, "r--", label="Average Fitness", linewidth=2)
     ax1.set_xlabel("Generation")

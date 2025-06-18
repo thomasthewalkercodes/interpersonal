@@ -1,14 +1,15 @@
-from dataclasses import dataclass
-from typing import Dict, List, Tuple, Optional
-import numpy as np
 from abc import ABC, abstractmethod
+import numpy as np
 import matplotlib.pyplot as plt
+from dataclasses import dataclass
+from typing import Dict, List, Tuple
 from Reinforcement_learning import (
     LearningConfig,
     WarmthLearningAgent,
     WarmthActionSpace,
 )
-from Configurations import run_simulation, SimulationConfig
+from Configurations import SimulationConfig, run_simulation
+from opponent_types import OpponentType, OPPONENT_TYPES
 from ml_algo_plot import plot_evolution_history
 
 
@@ -61,7 +62,7 @@ class ParameterRanges:
     alpha: Tuple[float, float] = (0.1, 1)
     risk_sensitivity: Tuple[float, float] = (0.0, 1.0)
     prior_expectation: Tuple[float, float] = (0.0, 1.0)
-    prior_strength: Tuple[float, float] = (1.0, 10)
+    prior_strength: Tuple[float, float] = (1.0, 2)
 
 
 class Individual:
@@ -142,6 +143,13 @@ class GeneticOptimizer:
         }
         self.current_mutation_rate = self.params.base_mutation_rate
 
+        # Add diversity tracking
+        self.population_diversity = []
+
+        # Adjust selection pressure
+        self.selection_pressure = 2.0  # Higher values mean stronger selection
+        self.min_diversity = 0.1  # Minimum population diversity threshold
+
     def initialize_population(self):
         """Initialize random population"""
         self.population = [
@@ -157,6 +165,18 @@ class GeneticOptimizer:
         self._sort_population()
         best = self._get_smoothed_best()
         self._adapt_mutation_rate()
+
+        # Track diversity
+        current_diversity = np.mean(
+            [self._calculate_diversity(ind) for ind in self.population]
+        )
+        self.population_diversity.append(current_diversity)
+
+        # Adjust selection pressure based on diversity
+        if current_diversity < self.min_diversity:
+            self.selection_pressure *= 0.9  # Reduce selection pressure
+        else:
+            self.selection_pressure = min(2.0, self.selection_pressure * 1.1)
 
         new_population = self._create_next_generation()
         self.population = new_population
@@ -215,12 +235,45 @@ class GeneticOptimizer:
         """Preserves best individuals"""
         return self.population[: self.params.elite_size]
 
-    def _tournament_select(self) -> Individual:
-        """Selects individual using tournament selection"""
-        tournament = np.random.choice(
-            self.population, self.params.tournament_size, replace=False
+    def _tournament_select(self, tournament_size: int = 3) -> Individual:
+        """Modified tournament selection with diversity preservation"""
+        if self.generation < 5:  # Early generations
+            # Use larger tournaments for more exploration
+            tournament_size = max(2, tournament_size - 1)
+
+        tournament = np.random.choice(self.population, tournament_size, replace=False)
+
+        # Calculate diversity contribution
+        diversity_scores = [self._calculate_diversity(ind) for ind in tournament]
+
+        # Combine fitness and diversity
+        combined_scores = [
+            ind.fitness + self.min_diversity * div_score
+            for ind, div_score in zip(tournament, diversity_scores)
+        ]
+
+        return tournament[np.argmax(combined_scores)]
+
+    def _calculate_diversity(self, individual: Individual) -> float:
+        """Calculate how different an individual is from population mean"""
+        if not self.population:
+            return 0.0
+
+        mean_params = {}
+        for param in individual.params:
+            values = [ind.params[param] for ind in self.population]
+            mean_params[param] = np.mean(values)
+
+        # Calculate Euclidean distance from mean
+        distance = (
+            sum(
+                ((individual.params[param] - mean_params[param]) ** 2)
+                for param in individual.params
+            )
+            ** 0.5
         )
-        return max(tournament, key=lambda ind: ind.fitness)
+
+        return distance
 
     def _crossover(self, parent1: Individual, parent2: Individual) -> Individual:
         """Creates child using uniform crossover"""
@@ -256,18 +309,32 @@ class GeneticOptimizer:
     ) -> float:
         """Calculate fitness score for an individual against all opponents"""
         total_points = 0
+        n_trials = 3  # Run multiple trials for more stable fitness
         action_space = WarmthActionSpace(n_bins=sim_config.n_bins)
 
-        # Create agent from individual's parameters
-        agent = WarmthLearningAgent(individual.config, action_space, "Evolving_Agent")
+        # Run multiple trials against each opponent
+        for opponent in opponents:
+            trial_points = []
+            for _ in range(n_trials):
+                # Create fresh agent for each trial to avoid learning interference
+                agent = WarmthLearningAgent(
+                    individual.config, action_space, "Evolving_Agent"
+                )
+                payoffs, _ = run_simulation(agent, opponent, sim_config)
+                trial_points.append(sum(payoffs))
 
-        # Play against each opponent
-        for opp in opponents:
-            payoffs1, _ = run_simulation(agent, opp, sim_config)
-            total_points += sum(payoffs1)
+            # Use median score from trials against this opponent
+            total_points += np.median(trial_points)
 
-        # Return average points across all opponents
-        return total_points / len(opponents)
+        # Calculate average points per opponent
+        fitness = total_points / len(opponents)
+
+        # Add stability bonus if performance is consistent
+        if len(trial_points) > 1:
+            stability = 1 / (1 + np.std(trial_points))
+            fitness *= 1 + 0.1 * stability  # 10% bonus for stable performance
+
+        return fitness
 
 
 def evaluate_fitness(
@@ -345,6 +412,46 @@ def create_opponent_pool(
     return opponents
 
 
+# Define standard opponent types
+OPPONENT_TYPES = {
+    "COLD_RIGID": OpponentType(
+        name="Cold Rigid",
+        description="Consistently cold with strong priors",
+        learning_rate=0.1,
+        prior_expectation=0.2,
+        prior_strength=40.0,
+        risk_sensitivity=0.7,
+        exploration_rate=0.1,
+    ),
+    "WARM_FLEXIBLE": OpponentType(
+        name="Warm Flexible",
+        description="Initially warm but adapts quickly",
+        learning_rate=0.3,
+        prior_expectation=0.8,
+        prior_strength=10.0,
+        risk_sensitivity=0.3,
+        exploration_rate=0.2,
+    ),
+    "CAUTIOUS_LEARNER": OpponentType(
+        name="Cautious Learner",
+        description="Starts neutral, learns slowly, avoids risks",
+        learning_rate=0.15,
+        prior_expectation=0.5,
+        prior_strength=20.0,
+        risk_sensitivity=0.6,
+        exploration_rate=0.15,
+    ),
+    "ERRATIC": OpponentType(
+        name="Erratic",
+        description="Highly exploratory with weak priors",
+        learning_rate=0.4,
+        prior_expectation=0.5,
+        prior_strength=5.0,
+        risk_sensitivity=0.2,
+        exploration_rate=0.4,
+    ),
+}
+
 if __name__ == "__main__":
     # Example opponent configurations
     opponent_configs = [
@@ -379,3 +486,121 @@ if __name__ == "__main__":
     # Plot results
     fig = plot_evolution_history(history)
     plt.show()
+
+
+def plot_evolution_comparison(experiment_results: Dict[str, List[dict]]):
+    """Visualize evolution results across different opponent mixes"""
+
+    # Create figure with subplots
+    fig = plt.figure(figsize=(15, 12))
+    gs = plt.GridSpec(3, 2, figure=fig)
+
+    # Fitness evolution plot
+    ax1 = fig.add_subplot(gs[0, :])
+    for mix_name, history in experiment_results.items():
+        generations = [h["generation"] for h in history]
+        fitness = [h["best_fitness"] for h in history]
+        ax1.plot(generations, fitness, label=f"{mix_name}", linewidth=2)
+
+    ax1.set_xlabel("Generation")
+    ax1.set_ylabel("Best Fitness")
+    ax1.set_title("Evolution of Fitness Across Different Opponent Mixes")
+    ax1.grid(True, alpha=0.3)
+    ax1.legend()
+
+    # Parameter evolution for each mix
+    params = list(
+        experiment_results[list(experiment_results.keys())[0]][0]["best_params"].keys()
+    )
+
+    for idx, param in enumerate(params):
+        ax = fig.add_subplot(gs[1:, idx % 2])
+        for mix_name, history in experiment_results.items():
+            values = [h["best_params"][param] for h in history]
+            ax.plot(generations, values, label=f"{mix_name}", linewidth=2)
+
+        ax.set_xlabel("Generation")
+        ax.set_ylabel(f"{param} Value")
+        ax.set_title(f"Evolution of {param}")
+        ax.grid(True, alpha=0.3)
+        ax.legend()
+
+    # Add final parameters comparison
+    final_params = {
+        mix_name: history[-1]["best_params"]
+        for mix_name, history in experiment_results.items()
+    }
+
+    # Create comparison table
+    table_data = []
+    for param in params:
+        row = [param] + [f"{final_params[mix][param]:.3f}" for mix in final_params]
+        table_data.append(row)
+
+    plt.figtext(
+        0.5,
+        0.02,
+        tabulate(
+            table_data,
+            headers=["Parameter"] + list(final_params.keys()),
+            tablefmt="grid",
+        ),
+        ha="center",
+        fontfamily="monospace",
+    )
+
+    plt.tight_layout()
+    return fig
+
+
+def plot_opponent_distribution(experiment_results: Dict[str, List[dict]]):
+    """Visualize opponent type distributions and corresponding best parameters"""
+
+    fig, axes = plt.subplots(2, 1, figsize=(12, 10))
+
+    # Plot opponent distributions
+    mix_data = []
+    for mix_name, history in experiment_results.items():
+        mix = history[0]["opponent_mix"]
+        for opp_type, prop in mix.items():
+            mix_data.append(
+                {
+                    "Mix": mix_name,
+                    "Opponent Type": opp_type,
+                    "Proportion": prop,
+                }
+            )
+
+    sns.barplot(
+        data=mix_data,
+        x="Mix",
+        y="Proportion",
+        hue="Opponent Type",
+        ax=axes[0],
+    )
+    axes[0].set_title("Opponent Type Distribution per Mix")
+
+    # Plot final parameters for each mix
+    param_data = []
+    for mix_name, history in experiment_results.items():
+        final_params = history[-1]["best_params"]
+        for param, value in final_params.items():
+            param_data.append(
+                {
+                    "Mix": mix_name,
+                    "Parameter": param,
+                    "Value": value,
+                }
+            )
+
+    sns.barplot(
+        data=param_data,
+        x="Mix",
+        y="Value",
+        hue="Parameter",
+        ax=axes[1],
+    )
+    axes[1].set_title("Best Parameters per Mix")
+
+    plt.tight_layout()
+    return fig
