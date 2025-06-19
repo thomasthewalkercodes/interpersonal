@@ -39,13 +39,13 @@ def test_basic_functionality():
 
         print("   - agent_state.py: OK")
 
-        from agent_config import (
+        from agent_configuration import (
             BaseAgentConfig,
             CooperativeAgentConfig,
             CompetitiveAgentConfig,
         )
 
-        print("   - agent_config.py: OK")
+        print("   - agent_configuration.py: OK")
 
         from sac_algorithm import SACAgent, SACTrainer
 
@@ -165,7 +165,7 @@ def quick_training_demo():
     print("=" * 45)
 
     try:
-        from agent_config import CooperativeAgentConfig, CompetitiveAgentConfig
+        from agent_configuration import CooperativeAgentConfig, CompetitiveAgentConfig
         from agent_state import InterpersonalAgentState
         from sac_algorithm import SACAgent, SACTrainer
         from interaction_environment import (

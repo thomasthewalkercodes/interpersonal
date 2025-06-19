@@ -44,8 +44,8 @@ def quick_demo():
 
     # Import our modules (assuming they're in the same directory)
     try:
-        from agent_config import CooperativeAgentConfig, CompetitiveAgentConfig
-        from corrected_agent_state import InterpersonalAgentState
+        from agent_configuration import CooperativeAgentConfig, CompetitiveAgentConfig
+        from agent_state import InterpersonalAgentState
         from sac_algorithm import SACAgent
         from interaction_environment import (
             InterpersonalEnvironment,

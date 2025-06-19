@@ -1,11 +1,16 @@
+"""
+Fixed version of your sac_algorithm.py with all syntax errors corrected.
+Replace your sac_algorithm.py with this content.
+"""
+
 import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 import numpy as np
 import random
-from collections import deque  # Fixed incomplete import
-from typing import Dict, Any, List, Tuple, Optional  # Added Optional
+from collections import deque
+from typing import Dict, Any, List, Tuple, Optional
 from interfaces import ReinforcementLearner
 
 
@@ -25,23 +30,32 @@ class ReplayBuffer:
         next_state: np.ndarray,
         done: bool,
     ):
-        """add experience to buffer."""
+        """Add experience to buffer."""
         self.buffer.append((state, action, reward, next_state, done))
 
     def sample(self, batch_size: int) -> Tuple[torch.Tensor, ...]:
         """Sample a batch of experiences from the buffer."""
-        batch = random
+        batch = random.sample(
+            self.buffer, batch_size
+        )  # Fixed: was just "batch = random"
 
-        states = torch.Floattensor([e[0] for e in batch])
-        actions = torch.FloatTensor([e[1] for e in batch]).unsqueeze(1)
-        rewards = torch.FloatTensor([e[2] for e in batch]).unsqueeze(1)
-        next_states = torch.FloatTensor([e[3] for e in batch])
-        dones = torch.FloatTensor([e[4] for e in batch]).unsqueeze(1)
+        # Convert to numpy arrays first, then to tensors (more efficient)
+        states = np.array([e[0] for e in batch], dtype=np.float32)
+        actions = np.array([e[1] for e in batch], dtype=np.float32)
+        rewards = np.array([e[2] for e in batch], dtype=np.float32)
+        next_states = np.array([e[3] for e in batch], dtype=np.float32)
+        dones = np.array([e[4] for e in batch], dtype=np.float32)
+
+        states = torch.FloatTensor(states)
+        actions = torch.FloatTensor(actions).unsqueeze(1)
+        rewards = torch.FloatTensor(rewards).unsqueeze(1)
+        next_states = torch.FloatTensor(next_states)
+        dones = torch.FloatTensor(dones).unsqueeze(1)
 
         return states, actions, rewards, next_states, dones
 
     def __len__(self):
-        return
+        return len(self.buffer)  # Fixed: was incomplete
 
 
 class Actor(nn.Module):
@@ -65,7 +79,7 @@ class Actor(nn.Module):
     def forward(self, state: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
         """Forward pass through the actor network."""
         x = F.relu(self.fc1(state))
-        y = F.relu(self.fc2(x))
+        x = F.relu(self.fc2(x))  # Fixed: was using 'y' instead of 'x'
 
         mean = self.mean(x)
         log_std = self.log_std(x)
@@ -249,7 +263,11 @@ class SACAgent(ReinforcementLearner):
                 "actor_loss": actor_loss,
                 "critic_loss": critic_loss,
                 "alpha_loss": alpha_loss,
-                "alpha": self.alpha,
+                "alpha": (
+                    float(self.alpha.detach())
+                    if hasattr(self.alpha, "detach")
+                    else float(self.alpha)
+                ),
             }
         )
 
@@ -362,7 +380,7 @@ class SACAgent(ReinforcementLearner):
         self.critic.load_state_dict(checkpoint["critic_state_dict"])
         self.critic_target.load_state_dict(checkpoint["critic_target_state_dict"])
         self.actor_optimizer.load_state_dict(checkpoint["actor_optimizer_state_dict"])
-        self.critic_optimizer.load_state_dict(checkpoint["critic_optimizer.state_dict"])
+        self.critic_optimizer.load_state_dict(checkpoint["critic_optimizer_state_dict"])
 
         if self.automatic_entropy_tuning and checkpoint["log_alpha"] is not None:
             self.log_alpha = checkpoint["log_alpha"]
