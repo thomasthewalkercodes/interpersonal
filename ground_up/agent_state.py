@@ -1,4 +1,14 @@
-class InterpersonalAgentState:
+"""
+Fixed version of your agent_state.py with all syntax errors corrected.
+Save this as agent_state.py in your directory.
+"""
+
+import numpy as np
+from collections import deque
+from interfaces import AgentState
+
+
+class InterpersonalAgentState(AgentState):
     def __init__(
         self,
         memory_length: int = 50,
@@ -19,7 +29,7 @@ class InterpersonalAgentState:
         self.self_action_history = deque(maxlen=memory_length)
         self.other_action_history = deque(maxlen=memory_length)
 
-        # Initialize with neutral actions of memory is empty
+        # Initialize with neutral actions if memory is empty
         self._initialize_histories()
 
     def _initialize_histories(self):
@@ -49,8 +59,8 @@ class InterpersonalAgentState:
         self_history = list(self.self_action_history)
         other_history = list(self.other_action_history)
 
-        # Recent trends (last 10 actiions if available)
-        recent_window = min(10, len(self.other_history))
+        # Recent trends (last 10 actions if available)
+        recent_window = min(10, len(other_history))
         if recent_window > 0:
             recent_other = other_history[-recent_window:]
             recent_self = self_history[-recent_window:]
@@ -63,7 +73,7 @@ class InterpersonalAgentState:
             self_trend = 0.0
             other_volatility = 0.0
 
-        trend_features = [partner_trend, self_trend, other_volatility]
+        trend_features = [other_trend, self_trend, other_volatility]
 
         # Combine all features
         state_vector = np.array(
@@ -76,12 +86,12 @@ class InterpersonalAgentState:
     def update_state(self, my_action: float, other_action: float, payoff: float):
         """Update the agent's state based on the action taken and the received payoff
         Args:
-        - own action
-        - partner action
-        - payoff"""
+        - my_action: own action
+        - other_action: partner action
+        - payoff: received payoff"""
 
         # Update action histories
-        self.self_action_history.append(self_action)
+        self.self_action_history.append(my_action)
         self.other_action_history.append(other_action)
 
         # Update payoff tracking
@@ -92,7 +102,7 @@ class InterpersonalAgentState:
         self._update_trust(other_action)
 
         # Update satisfaction based on payoff and expectations
-        self._update_satisfaction(payoff, self_action, other_action)
+        self._update_satisfaction(payoff, my_action, other_action)
 
     def _update_trust(self, other_action: float):
         """Update trust level based on partner's action"""
@@ -107,7 +117,7 @@ class InterpersonalAgentState:
             consistency = 0.5
 
         # Trust update with learning rate
-        trust_update = 0.1 * (partner_positivity * consistency - 0.5)
+        trust_update = 0.1 * (other_positivity * consistency - 0.5)
         self.trust_level = np.clip(self.trust_level + trust_update, -1.0, 1.0)
 
     def _update_satisfaction(
@@ -117,8 +127,8 @@ class InterpersonalAgentState:
         # satisfaction increases with positive payoff and alignment
         # also influenced by mutual cooperation
         cooperation_bonus = 0.0
-        if self_action > o and other_action > 0:
-            cooperation_bonus = 0.2 * min(self_action + other_action)
+        if my_action > 0 and other_action > 0:
+            cooperation_bonus = 0.2 * min(my_action, other_action)
 
         # Normalize payoff (adjust as needed)
         normalized_payoff = np.clip(payoff / 10.0, -1.0, 1.0)
@@ -134,6 +144,11 @@ class InterpersonalAgentState:
         self.satisfaction_level = self.initial_satisfaction
         self.cumulative_payoff = 0.0
         self.interaction_count = 0
+
+        # Reset histories
+        self.self_action_history.clear()
+        self.other_action_history.clear()
+        self._initialize_histories()
 
     def get_state_dimension(self) -> int:
         """Return the dimension of the state vector"""
@@ -157,7 +172,7 @@ class InterpersonalAgentState:
         """Get the current satisfaction level"""
         return self.satisfaction_level
 
-    def get_cumulative_payoff(self) -> float:
+    def get_average_payoff(self) -> float:
         """Get the cumulative payoff"""
         return self.cumulative_payoff / max(
             1, self.interaction_count

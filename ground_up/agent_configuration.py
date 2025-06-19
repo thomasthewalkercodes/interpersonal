@@ -1,3 +1,8 @@
+"""
+Fixed version of your agent_configuration.py with all issues corrected.
+Save this as agent_configuration.py in your directory.
+"""
+
 from typing import Dict, Any
 from interfaces import AgentConfig, AgentState
 from agent_state import InterpersonalAgentState
@@ -16,11 +21,13 @@ class BaseAgentConfig(AgentConfig):
         tau: float = 0.005,
         alpha: float = 0.2,
         target_entropy: float = None,
-        buffer_size: int = 1000000,
+        buffer_size: int = 100000,
         batch_size: int = 256,
+        hidden_size: int = 256,  # Added this missing parameter
         # Agent personality parameters
         memory_length: int = 50,
         initial_trust: float = 0.0,
+        initial_satisfaction: float = 0.0,  # Added this missing parameter
         # Training parameters
         noise_scale: float = 0.1,
     ):
@@ -78,7 +85,7 @@ class BaseAgentConfig(AgentConfig):
         """Return the length of the memory buffer for experience replay"""
         return self.memory_length
 
-    def create_initial_state(self):
+    def create_initial_state(self) -> AgentState:
         """Create and return an initial state for the agent"""
         return InterpersonalAgentState(
             memory_length=self.memory_length,
@@ -100,10 +107,10 @@ class CooperativeAgentConfig(BaseAgentConfig):
             "alpha": 0.1,
             "initial_trust": 0.5,  # Higher initial trust
             "initial_satisfaction": 0.3,  # Higher initial satisfaction
-            "memory_length": 30,  # Longer memory for stable learning
+            "memory_length": 30,  # Shorter memory for more forgiving nature
             "noise_scale": 0.05,  # Less exploration noise
         }
-        defaults
+        defaults.update(kwargs)  # Fixed this line - was missing .update(kwargs)
         super().__init__(**defaults)
 
 
