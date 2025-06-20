@@ -264,11 +264,19 @@ def main():
     # Define experiments
     experiments = [
         {
-            "name": "cooperative_vs_competitive",
-            "config1": CooperativeAgentConfig(memory_length=50),  # Same memory length
+            "name": "competitive_vs_competitive",
+            "config1": CompetitiveAgentConfig(memory_length=50),  # Same memory length
             "config2": CompetitiveAgentConfig(memory_length=50),  # Same memory length
             "episodes": 300,
-            "alpha": 4,  # Your Gaussian parameters
+            "alpha": 1,  # Your Gaussian parameters
+            "beta": 3,
+        },
+        {
+            "name": "more rejection sens competitive_vs_competitive",
+            "config1": CompetitiveAgentConfig(memory_length=50),  # Same memory length
+            "config2": CompetitiveAgentConfig(memory_length=50),  # Same memory length
+            "episodes": 300,
+            "alpha": 8,  # Your Gaussian parameters
             "beta": 10,
         },
         {
@@ -276,8 +284,8 @@ def main():
             "config1": CooperativeAgentConfig(memory_length=50),
             "config2": CooperativeAgentConfig(memory_length=50),
             "episodes": 300,
-            "alpha": 2,  # Less mismatch sensitivity
-            "beta": 5,
+            "alpha": 8,  # Less mismatch sensitivity
+            "beta": 10,
         },
         {
             "name": "adaptive_vs_cautious",
