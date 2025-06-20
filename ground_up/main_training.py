@@ -7,6 +7,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from typing import Dict, Any
+from comprehensive_logging import LoggingTrainerWrapper
 
 # Import your modules
 from agent_configuration import (
@@ -114,7 +115,8 @@ class ExperimentRunner:
 
         # Train agents
         save_dir = f"./models/{experiment_name}"
-        results = trainer.train(save_dir)
+        logging_wrapper = LoggingTrainerWrapper(trainer, experiment_name)
+        results = logging_wrapper.train_with_logging(save_dir)
 
         # Store results
         self.results[experiment_name] = results
