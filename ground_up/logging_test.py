@@ -44,7 +44,7 @@ def quick_test():
         agent2=agent2,
         environment=environment,
         payoff_calculator=payoff_calculator,
-        episodes_per_training=50,  # Short test
+        episodes_per_training=30,  # Short test
         steps_per_episode=20,
         evaluation_frequency=25,
         save_frequency=100,

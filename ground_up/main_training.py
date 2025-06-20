@@ -313,7 +313,7 @@ def main():
             )
 
             # Analyze results
-            runner.analyze_results(exp["name"])
+            # IF YOU WANT YOUR OLD GRAPHS runner.analyze_results(exp["name"])
 
         except Exception as e:
             print(f"Error in experiment {exp['name']}: {e}")
