@@ -33,7 +33,7 @@ class TherapeuticPayoffCalculator(PayoffCalculator):
     Rewards therapist for patient progress and mutual warmth.
     """
 
-    def __init__(self, alpha: float = 4.0, beta: float = 10.0):
+    def __init__(self, alpha: float = 2.0, beta: float = 5.0):
         self.alpha = alpha
         self.beta = beta
 
@@ -358,7 +358,7 @@ def run_therapeutic_experiment(
     patient_config = CompetitiveAgentConfig(
         initial_trust=-0.4,  # Start very distrustful
         initial_satisfaction=-0.3,  # Start dissatisfied
-        memory_length=80,  # Long memory of negative experiences
+        memory_length=40,  # Long memory of negative experiences
         lr_actor=5e-4,  # Learn moderately fast
         lr_critic=5e-4,
         alpha=0.25,  # Moderate exploration
@@ -620,7 +620,7 @@ def run_multiple_therapeutic_experiments():
 # "intensive"      - Intensive therapy (800 episodes, ~20-25 minutes)
 # "comparison"     - Multiple experiments comparison (~30-45 minutes)
 
-EXPERIMENT_TYPE = "single"  # <-- CHANGE THIS TO RUN DIFFERENT EXPERIMENTS
+EXPERIMENT_TYPE = "quick_tests"  # <-- CHANGE THIS TO RUN DIFFERENT EXPERIMENTS
 
 # Advanced configuration (optional to modify)
 CUSTOM_CONFIG = {
