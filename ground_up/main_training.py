@@ -266,12 +266,12 @@ def main():
     # Define experiments
     experiments = [
         {
-            "name": "competitive_vs_competitive",
-            "config1": CompetitiveAgentConfig(memory_length=50),  # Same memory length
-            "config2": CompetitiveAgentConfig(memory_length=50),  # Same memory length
+            "name": "double cautious",
+            "config1": CautiousAgentConfig(memory_length=50),  # Same memory length
+            "config2": CautiousAgentConfig(memory_length=50),  # Same memory length
             "episodes": 300,
-            "alpha": 1,  # Your Gaussian parameters
-            "beta": 3,
+            "alpha": 8,  # Your Gaussian parameters
+            "beta": 10,
         },
         {
             "name": "more rejection sens competitive_vs_competitive",
