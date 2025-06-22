@@ -1,0 +1,5223 @@
+{
+  "strategies": [
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.07727543594904057,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 1.6966602260910808,
+      "generation": 19,
+      "therapy_sessions": 336
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 1.6966602260910808,
+      "generation": 21,
+      "therapy_sessions": 333
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 1.6966602260910808,
+      "generation": 23,
+      "therapy_sessions": 330
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.07727543594904057,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 20,
+      "therapy_sessions": 336
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 25,
+      "therapy_sessions": 0
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 24,
+      "therapy_sessions": 330
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 25,
+      "therapy_sessions": 0
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 25,
+      "therapy_sessions": 0
+    },
+    {
+      "matching_intensity": 0.7504570803163203,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.09464536295639592,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 25,
+      "therapy_sessions": 0
+    },
+    {
+      "matching_intensity": 0.5765449553580984,
+      "trust_threshold": 0.4190869406724145,
+      "leading_step_size": 0.07727543594904057,
+      "stabilization_patience": 16,
+      "warmth_target": 0.6389115095087368,
+      "trust_sensitivity": 0.3182511953476377,
+      "progress_sensitivity": 0.266756232145236,
+      "retreat_threshold": -0.2,
+      "assessment_duration": 15,
+      "max_cycles": 10,
+      "patience_multiplier": 1.2,
+      "mutation_rate": 0.1,
+      "fitness_score": 0.0,
+      "generation": 20,
+      "therapy_sessions": 336
+    }
+  ],
+  "evolution_history": [
+    {
+      "generation": 0,
+      "best_fitness": 1.6796759939234438,
+      "average_fitness": 1.5754896335394544,
+      "best_strategy": {
+        "matching_intensity": 0.9909325265837523,
+        "trust_threshold": 0.20378254278581379,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 12,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6796759939234438,
+        "generation": 0
+      }
+    },
+    {
+      "generation": 1,
+      "best_fitness": 1.6796759939234438,
+      "average_fitness": 1.6347299585891115,
+      "best_strategy": {
+        "matching_intensity": 0.9909325265837523,
+        "trust_threshold": 0.20378254278581379,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 12,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6796759939234438,
+        "generation": 0
+      }
+    },
+    {
+      "generation": 2,
+      "best_fitness": 1.6796759939234438,
+      "average_fitness": 1.6491522356205597,
+      "best_strategy": {
+        "matching_intensity": 0.9909325265837523,
+        "trust_threshold": 0.20378254278581379,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 12,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6796759939234438,
+        "generation": 0
+      }
+    },
+    {
+      "generation": 3,
+      "best_fitness": 1.6950596132605007,
+      "average_fitness": 1.6694148008047123,
+      "best_strategy": {
+        "matching_intensity": 0.7422934158563245,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6950596132605007,
+        "generation": 4
+      }
+    },
+    {
+      "generation": 4,
+      "best_fitness": 1.6950596132605007,
+      "average_fitness": 1.6827527177908554,
+      "best_strategy": {
+        "matching_intensity": 0.7422934158563245,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6950596132605007,
+        "generation": 4
+      }
+    },
+    {
+      "generation": 5,
+      "best_fitness": 1.6950596132605007,
+      "average_fitness": 1.6857654001621114,
+      "best_strategy": {
+        "matching_intensity": 0.7422934158563245,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6950596132605007,
+        "generation": 4
+      }
+    },
+    {
+      "generation": 6,
+      "best_fitness": 1.6950596132605007,
+      "average_fitness": 1.6950596132605007,
+      "best_strategy": {
+        "matching_intensity": 0.7422934158563245,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6950596132605007,
+        "generation": 4
+      }
+    },
+    {
+      "generation": 7,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6929208040314898,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 8,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.69532534449345,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 9,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6889990997241653,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 10,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.695526329973887,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 11,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 12,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6938174450012524,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 13,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 14,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 15,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.692131352747862,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 16,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6955663767228504,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 17,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 18,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6950768204560387,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 19,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6956723109795626,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 20,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 21,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.689027928947627,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 22,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.692149352858068,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 23,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6941108165519645,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 24,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 25,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 26,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.694982680896397,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 27,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 28,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6945854599727586,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 29,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 30,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6897262000693005,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 31,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6928308944235209,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 32,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.694878198531437,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 33,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6936851601508927,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 34,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6950435834309823,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 35,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6939078443321265,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 36,
+      "best_fitness": 1.6957239413428737,
+      "average_fitness": 1.6957239413428737,
+      "best_strategy": {
+        "matching_intensity": 0.7637136991870728,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.0833466659354346,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6957239413428737,
+        "generation": 10
+      }
+    },
+    {
+      "generation": 37,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6957958420540766,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 38,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947940036956226,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 39,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947027007407904,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 40,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6950173784292315,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 41,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6933376982905013,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 42,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 43,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 44,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6960512108255734,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 45,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6937256910341272,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 46,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 47,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 48,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 49,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 50,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 51,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 52,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6962209689578223,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 53,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 54,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6949319024448954,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 55,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 56,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6932158863822473,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 57,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947022115056036,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 58,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 59,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6962574367228407,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 60,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947022115056036,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 61,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6933452267891322,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 62,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6960454195542405,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 63,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 64,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 65,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 66,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 67,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 68,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 69,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6936286790404798,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 70,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 71,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6958891068164352,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 72,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6955906103255818,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 73,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 74,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 75,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6925071715555364,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 76,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 77,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6930592058924674,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 78,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 79,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 80,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947022115056036,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 81,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6960535840976818,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 82,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.695556643549573,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 83,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 84,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 85,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6958987044588056,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 86,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 87,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6962702775479137,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 88,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6948640519082108,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 89,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6960649842262707,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 90,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6916777750875567,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 91,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 92,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 93,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6953941812448974,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 94,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6963741851136778,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 95,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6964313337797567,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 96,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 97,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 98,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 99,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696138466031473,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 100,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6955822008866412,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 101,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6927723542752162,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 102,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6936262855602595,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 103,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 104,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 105,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 106,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6954422480441598,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 107,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6915354166994416,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 108,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 109,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 110,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 111,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6957288429483774,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 112,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6953880015168266,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 113,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6955983970928834,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 114,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6928589221508221,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 115,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 116,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 117,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6915239053885767,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 118,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6951364078328333,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 119,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6954927174325096,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 120,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6942656242358176,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 121,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 122,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 123,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 124,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 125,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6928862865942729,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 126,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 127,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6963482409940909,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 128,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 129,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 130,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.695582470234489,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 131,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 132,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 133,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947771552115203,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 134,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.695037499366348,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 135,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6930605389044693,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 136,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 137,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6960559229145002,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 138,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6964061926729659,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 139,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947338141091077,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 140,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.695159348248659,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 141,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6953494136116916,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 142,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6948888134257145,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 143,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 144,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6948371842435925,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 145,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 146,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6962312591815483,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 147,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6934046520878892,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 148,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6946896142760046,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 149,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6951661729861947,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 150,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.693706868745664,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 151,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6961673646375943,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 152,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6962928079600434,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 153,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 154,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6902384148135858,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 155,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 156,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947022115056036,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 157,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6940762653656811,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 158,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 159,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6959299391846323,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 160,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.694731630943867,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 161,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 162,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 163,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6925228819019928,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 164,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 165,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6963809876449354,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 166,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 167,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.689808069095062,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 168,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6956451564452397,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 169,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696242596372248,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 170,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 171,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6895069310436646,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 172,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 173,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 174,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 175,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6950168586665568,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 176,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6915673973916234,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 177,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.69602596389369,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 178,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 179,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947022115056036,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 180,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6961411630336767,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 181,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6947202566688393,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 182,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.693385418839131,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 183,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 184,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6956397560260186,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 185,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6943495732191107,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 186,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 187,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 188,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 189,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6890789012742893,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 190,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6931247612680953,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 191,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6939193890894042,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 192,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6926662490416242,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 193,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 194,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696244488465703,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 195,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6929141792771971,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 196,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.693579291048217,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 197,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 198,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6958472004228191,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 199,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6955221664057798,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 200,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6910260185931985,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 201,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6957013029029575,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 202,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6937096208121267,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 203,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6946329114459573,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 204,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6939615536062789,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 205,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6957959896616408,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 206,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6955074993077575,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 207,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.696442948454905,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 208,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6917304574861283,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 209,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6919138550401034,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 210,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.693648852627554,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 211,
+      "best_fitness": 1.696442948454905,
+      "average_fitness": 1.6931234242103017,
+      "best_strategy": {
+        "matching_intensity": 0.7535334593959215,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696442948454905,
+        "generation": 12
+      }
+    },
+    {
+      "generation": 212,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6964558789320758,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 213,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.695862423804445,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 214,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6965076008407585,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 215,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 216,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6930148673284442,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 217,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6957335847804025,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 218,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6962391820208047,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 219,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6962629165863699,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 220,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.695131019962237,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 221,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6899957466774858,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 222,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 223,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 224,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 225,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6939328991759794,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 226,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 227,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6924619051212328,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 228,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6957446194103931,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 229,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6952191988744911,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 230,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6956910723349747,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 231,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6949744866829035,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 232,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6954745292943527,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 233,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6958952092242559,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 234,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 235,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6932785920846711,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 236,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6964942958757283,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 237,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6940569138413586,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 238,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6962516914316979,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 239,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6942256642017863,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 240,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 241,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6919320066673063,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 242,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.694137536723273,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 243,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6962260877433042,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 244,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6955927209755441,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 245,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 246,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.696572253226612,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 247,
+      "best_fitness": 1.696572253226612,
+      "average_fitness": 1.6957589442474892,
+      "best_strategy": {
+        "matching_intensity": 0.7517026658472886,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.09464536295639592,
+        "stabilization_patience": 15,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.696572253226612,
+        "generation": 15
+      }
+    },
+    {
+      "generation": 248,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6963630957654572,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 249,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6965898477995058,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 250,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.696642631518187,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 251,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6964861858124063,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 252,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 253,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6951831624831566,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 254,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 255,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 256,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6960537883915723,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 257,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6953647469070412,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 258,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 259,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.695819377384001,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 260,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.695024597838819,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 261,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 262,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 263,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6947525028539272,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 264,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 265,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 266,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6953914556657737,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 267,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6955296738963146,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 268,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 269,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.696226275663759,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 270,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6963752605931552,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 271,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 272,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 273,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.695365832323881,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 274,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 275,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 276,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 277,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6965333583888509,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 278,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694897761378162,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 279,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 280,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6959480279080108,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 281,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 282,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694897761378162,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 283,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 284,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6932483261338853,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 285,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694317071592155,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 286,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 287,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694897761378162,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 288,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6949507184677182,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 289,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 290,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694897761378162,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 291,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.696363430531172,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 292,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6965132965028311,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 293,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 294,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 295,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6938061885264557,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 296,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.692463616796602,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 297,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6961162011798119,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 298,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6941229023567228,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 299,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6958254167346876,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 300,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6955787064711925,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 301,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6963070423626871,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 302,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694333218165207,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 303,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6953381131222174,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 304,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6936954585627682,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 305,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 306,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6953147806914597,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 307,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 308,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6925821439308653,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 309,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 310,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 311,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 312,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966132560807208,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 313,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6934838393121594,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 314,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694897761378162,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 315,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 316,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6921524939530528,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 317,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6955117105843314,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 318,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.695835634122544,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 319,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.695036694773711,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 320,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 321,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 322,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6963529243695983,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 323,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6941391256233662,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 324,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 325,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 326,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6926775724953582,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 327,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6962873314301319,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 328,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 329,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6955874141342584,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 330,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 331,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 332,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 333,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6957969558974426,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 334,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 335,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 336,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694603876570211,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 337,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6953441167640526,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 338,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6922481511015732,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 339,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.696047155497757,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 340,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 341,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 342,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.693440257583834,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 343,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6964436013667423,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 344,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.696014467159588,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 345,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6953887555002152,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 346,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.696622131365615,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 347,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 348,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 349,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.695277622885201,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 350,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 351,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.693803694389405,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 352,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 353,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 354,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.694897761378162,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 355,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 356,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6966602260910808,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 357,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6927238282846653,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 358,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6940557131468459,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    },
+    {
+      "generation": 359,
+      "best_fitness": 1.6966602260910808,
+      "average_fitness": 1.6918733108079749,
+      "best_strategy": {
+        "matching_intensity": 0.7504570803163203,
+        "trust_threshold": 0.4190869406724145,
+        "leading_step_size": 0.07727543594904057,
+        "stabilization_patience": 16,
+        "warmth_target": 0.6389115095087368,
+        "fitness_score": 1.6966602260910808,
+        "generation": 19
+      }
+    }
+  ],
+  "current_strategy_index": 0,
+  "therapeutic_state": {
+    "current_phase": "matching",
+    "therapy_step": 100,
+    "cycle_count": 0,
+    "patient_baseline_warmth": 0.2
+  }
+}
