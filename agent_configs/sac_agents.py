@@ -1,6 +1,6 @@
 from typing import Dict, Any
-from interfaces import AgentConfig, AgentState
-from agent_states import InterpersonalAgentState
+from interfaces.sac_interface import AgentConfig, AgentState
+from agent_states.sac_state import InterpersonalAgentState
 
 
 class BaseAgentConfig(AgentConfig):

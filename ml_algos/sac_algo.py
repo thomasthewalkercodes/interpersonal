@@ -11,7 +11,7 @@ import numpy as np
 import random
 from collections import deque
 from typing import Dict, Any, List, Tuple, Optional
-from interfaces import ReinforcementLearner
+from interfaces.sac_interface import ReinforcementLearner
 
 
 class ReplayBuffer:

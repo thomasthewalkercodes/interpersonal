@@ -13,10 +13,11 @@ import sys
 from typing import List, Dict, Any
 
 # Add the project root to path for imports
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 
 from control_center.sac_control import SACSControlCenter, SimulationConfig
-from plotting.simulation_plots import SimulationPlotter
+from sim_plots.sac_plot import SimulationPlotter
 
 
 def example_1_basic_interaction():
