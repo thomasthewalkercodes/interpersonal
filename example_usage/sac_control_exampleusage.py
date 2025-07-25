@@ -339,7 +339,8 @@ def create_payoff_visualization():
     plotter = SimulationPlotter()
 
     # Create payoff landscapes for different parameter settings
-    os.makedirs("./payoff_analysis", exist_ok=True)
+    if save_dir is not None:
+        os.makedirs(save_dir, exist_ok=True)
 
     parameter_sets = [
         (2.0, 5.0),  # Gentle

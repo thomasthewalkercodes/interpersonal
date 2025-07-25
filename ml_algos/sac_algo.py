@@ -448,7 +448,8 @@ class SACTrainer:
         """
         import os
 
-        os.makedirs(save_dir, exist_ok=True)
+        if save_dir is not None:
+            os.makedirs(save_dir, exist_ok=True)
 
         for episode in range(self.episodes_per_training):
             # Reset environment
@@ -515,8 +516,9 @@ class SACTrainer:
                 self.agent2.save_model(f"{save_dir}/agent2_episode_{episode}.pth")
 
         # Final save
-        self.agent1.save_model(f"{save_dir}/agent1_final.pth")
-        self.agent2.save_model(f"{save_dir}/agent2_final.pth")
+        if save_dir is not None:
+            self.agent1.save_model(f"{save_dir}/agent1_final.pth")
+            self.agent2.save_model(f"{save_dir}/agent2_final.pth")
 
         return {
             "episode_rewards": self.episode_rewards,
