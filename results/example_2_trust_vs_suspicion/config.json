@@ -1,0 +1,27 @@
+{
+  "agent1_type": "base",
+  "agent2_type": "base",
+  "agent1_custom_params": {
+    "initial_trust": 0.8,
+    "memory_length": 20,
+    "lr_actor": 0.0002,
+    "noise_scale": 0.05
+  },
+  "agent2_custom_params": {
+    "initial_trust": -0.7,
+    "memory_length": 100,
+    "lr_actor": 0.0008,
+    "noise_scale": 0.2
+  },
+  "episodes": 800,
+  "steps_per_episode": 40,
+  "training_frequency": 1,
+  "evaluation_frequency": 100,
+  "save_frequency": 500,
+  "payoff_alpha": 3.0,
+  "payoff_beta": 8.0,
+  "save_models": true,
+  "save_plots": true,
+  "output_dir": "./results",
+  "run_name": "example_2_trust_vs_suspicion"
+}

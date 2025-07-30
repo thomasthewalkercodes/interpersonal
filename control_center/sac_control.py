@@ -285,7 +285,7 @@ class SACSControlCenter:
         """Generate and save plots for the simulation results."""
         try:
             # Import here to avoid dependency issues if plotting not needed
-            from plotting.simulation_plots import SimulationPlotter
+            from sim_plots.sac_plot import SimulationPlotter
 
             plotter = SimulationPlotter()
             plotter.create_all_plots(results, output_dir)
