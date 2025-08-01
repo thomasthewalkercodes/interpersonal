@@ -1,0 +1,19 @@
+PARAMETER SWEEP ANALYSIS SUMMARY
+==================================================
+
+Dataset Overview:
+- Total simulations: 144
+- Personality pairings: 16
+- Parameter combinations: 9
+
+Key Findings:
+- Best total reward: 185.685
+- Most balanced outcome: 0.000
+- Average total reward: 137.203 ± 16.676
+
+Most adaptive personality: adaptive
+
+Statistical significance:
+- Significant tests after correction: 2
+
+Generated on: 2025-08-01 14:35:31

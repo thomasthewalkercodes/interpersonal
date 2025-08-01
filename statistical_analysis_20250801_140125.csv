@@ -1,0 +1,4 @@
+test_name,statistic,p_value,effect_size,significant_after_correction
+Alpha Main Effect,0.2570153061224403,0.8794068322383382,-0.0387329931972791,False
+Beta Main Effect,N/A - insufficient groups,N/A,N/A,False
+Personality Main Effect,21.312925170067984,0.1271256684169169,0.19727891156462452,False
