@@ -5,7 +5,7 @@ Bayesian belief updating functions for interpersonal dynamics
 
 import numpy as np
 from typing import Union
-from .bayesian_agent import BayesianAgent
+from .continuous_bayesian_agent import BayesianAgent
 
 
 def update_beliefs(agent: BayesianAgent, opponent_action: int) -> BayesianAgent:

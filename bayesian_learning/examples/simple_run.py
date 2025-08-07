@@ -7,8 +7,8 @@ import sys
 import os
 import numpy as np
 
-from ..src.bayesian_agent import create_bayesian_agent
-from ..src.simulation import run_bayesian_simulation
+from ..src.continuous_bayesian_agent import create_bayesian_agent
+from ..src.continuous_simulation import run_bayesian_simulation
 from ..config.bayesian_config import (
     create_default_config,
     create_agent_preset,
@@ -106,7 +106,7 @@ def run_comparison_example():
     print("Comparison Example: Different Personality Combinations")
     print("=" * 60)
 
-    from simulation import run_multiple_simulations
+    from continuous_simulation import run_multiple_simulations
 
     # Define personality types to compare
     personality_types = ["secure", "anxious", "avoidant"]

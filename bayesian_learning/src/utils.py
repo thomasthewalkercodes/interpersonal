@@ -8,7 +8,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from typing import Dict, Any, List, Optional, Tuple
-from .simulation import SimulationResults
+from .continuous_simulation import SimulationResults
 
 
 def plot_simulation_results(
@@ -525,7 +525,7 @@ def compare_action_selection_methods(
         DataFrame comparing the performance of different methods
     """
 
-    from .simulation import run_multiple_simulations
+    from .continuous_simulation import run_multiple_simulations
 
     methods = ["thompson", "ucb", "softmax"]
     comparison_results = []
