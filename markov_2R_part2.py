@@ -6,100 +6,97 @@ from collections import defaultdict, Counter
 import random
 
 
-def get_octants_from_coordinates(communion, agency):
-    angle_rad = np.arctan2(agency, communion)
-    angle_deg = np.degrees(angle_rad)
-    if angle_deg < 0:
-        angle_deg += 360
-    octant_boundaries = [22.5 + i * 45 for i in range(8)]
-    octants = ["LM", "NO", "PA", "BC", "DE", "FG", "HI", "JK"]
-    for i, boundary in enumerate(octant_boundaries):
-        if angle_deg < boundary:
-            return octants[i]
-    return octants[0]  # Wrap around to the first octant
+import random
+from collections import Counter
 
 
-df = pd.read_csv("C:\\Users\\thoma\\Downloads\\AAKTSE_wide_detrended_stacked.csv")
+def build_markov_chain(sequence=None, length=1000):
+    """
+    Builds a transition probability matrix.
+    - If `sequence` is given: states are derived automatically from it.
+    - If not: uses the predefined parameters and generates a simulated sequence.
+    """
 
-octants = ["LM", "NO", "PA", "BC", "DE", "FG", "HI", "JK"]
+    # --- Base frequencies for all states ---
+    base_weights_dict = {
+        "BC": 6.3,
+        "DE": 1.0,
+        "FG": 6.3,
+        "HI": 20.9,
+        "JK": 3.7,
+        "LM": 2.2,
+        "NO": 1.5,
+        "PA": 58.1,
+    }
 
-df["l_behavior"] = df.apply(
-    lambda row: get_octants_from_coordinates(row["L_C"], row["L_A"]), axis=1
-)
-L_behavior_list = df["l_behavior"].tolist()
-# print(L_behavior_list)
+    # --- Self-transition probabilities ---
+    self_probs = {
+        "PA": 0.91,
+        "BC": 0.69,
+        "DE": 0.33,
+        "FG": 0.71,
+        "HI": 0.95,
+        "JK": 0.69,
+        "LM": 0.50,
+        "NO": 0.80,
+    }
 
+    # --- Determine states dynamically ---
+    if sequence is not None:
+        states = sorted(set(sequence))
+    else:
+        states = list(base_weights_dict.keys())
 
-def circular_distance(o1, o2):
-    """Smallest circular distance (steps) between two octants."""
-    i1, i2 = octants.index(o1), octants.index(o2)
-    d = abs(i1 - i2)
-    return min(d, len(octants) - d)
+    # Filter base weights for only the relevant states
+    base_weights = [base_weights_dict[s] for s in states if s in base_weights_dict]
+    total = sum(base_weights)
+    base_probs = {
+        s: base_weights_dict[s] / total for s in states if s in base_weights_dict
+    }
 
-
-def logical_path_correct(L_behavior_list, max_distance=3):
-
-    newname = L_behavior_list.tolist()
-    corrected = newname.copy()
-    n = len(newname)
-
-    for i in range(1, n - 1):
-        prev_o = newname[i - 1]
-        curr_o = newname[i]
-        next_o = newname[i + 1]
-
-        # Check for single-frame behavior (only one occurrence)
-        if curr_o != prev_o and curr_o != next_o:
-            # Check if start and end are close enough in circumplex
-            if circular_distance(prev_o, next_o) <= max_distance:
-                # Check if curr_o is logically between prev_o and next_o on the circle
-                idx_prev = octants.index(prev_o)
-                idx_next = octants.index(next_o)
-                idx_curr = octants.index(curr_o)
-
-                # handle circular wrap-around
-                path_clockwise = (idx_prev + 1) % len(octants)
-                path_counter = (idx_prev - 1) % len(octants)
-
-                if idx_curr == path_clockwise or idx_curr == path_counter:
-                    corrected[i] = (
-                        next_o  # change transitional state to intended next one
-                    )
-
-    return pd.Series(corrected)
-
-
-L_behavior_list = logical_path_correct(df["l_behavior"]).tolist()
-
-print(L_behavior_list)
-
-
-# Build the transition matrix
-def build_markov_chain(L_behavior_list):
-    # Count transitions
-    transitions = defaultdict(Counter)
-
-    for i in range(len(L_behavior_list) - 1):
-        current_state = L_behavior_list[i]
-        next_state = L_behavior_list[i + 1]
-        transitions[current_state][next_state] += 1
-
-    # Convert counts to probabilities
+    # --- Build transition probability matrix ---
     transition_probs = {}
-    for state, next_states in transitions.items():
-        total = sum(next_states.values())
-        transition_probs[state] = {
-            next_state: count / total for next_state, count in next_states.items()
-        }
+    for state in states:
+        row = {}
+        self_p = self_probs.get(state, 0.5)  # default to 0.5 if not in self_probs
+        row[state] = self_p
+        remaining = 1 - self_p
+
+        others = [s for s in states if s != state]
+        sum_others = sum(base_probs[o] for o in others)
+        for o in others:
+            row[o] = remaining * (base_probs[o] / sum_others)
+
+        transition_probs[state] = row
+
+    # --- If no sequence given, generate one ---
+    if sequence is None:
+        sequence = generate_sequence_from_chain(
+            transition_probs, states, base_weights, length
+        )
 
     return transition_probs
 
 
+def generate_sequence_from_chain(transition_probs, states, base_weights, length):
+    """Generate a random sequence following a given Markov chain."""
+    result = []
+    current = random.choices(states, weights=base_weights, k=1)[0]
+    result.append(current)
+
+    for _ in range(length - 1):
+        probs = [transition_probs[current][s] for s in states]
+        current = random.choices(states, weights=probs, k=1)[0]
+        result.append(current)
+
+    return result
+
+
 # Build the transition probability matrix
-transition_probs = build_markov_chain(L_behavior_list)
+transition_probs = build_markov_chain()
 
 # Get all unique states
-states = sorted(set(L_behavior_list))
+states = sorted(set())
 
 
 # Create a transition matrix as a DataFrame for better visualization
@@ -197,11 +194,10 @@ def visualize_markov_chain(transition_probs, min_prob=0.05):
                 alpha=alpha,
                 edge_color="gray",
                 arrows=True,
-                arrowsize=25,
-                arrowstyle="-|>",
+                arrowsize=20,
+                arrowstyle="->",
                 ax=ax,
-                connectionstyle="arc3,rad=0.15",
-                min_target_margin=20,
+                connectionstyle="arc3,rad=0.1",
             )
 
     # Add edge labels with probabilities
@@ -221,7 +217,6 @@ def visualize_markov_chain(transition_probs, min_prob=0.05):
     )
     plt.axis("off")
     plt.tight_layout()
-    plt.savefig("markov_chain_l.png", dpi=300)
     plt.show()
 
     return G
@@ -236,11 +231,11 @@ print("\n" + "=" * 50)
 print("Markov Chain Statistics:")
 print("=" * 50)
 print(f"Number of states: {len(states)}")
-print(f"Total transitions: {len(L_behavior_list) - 1}")
+print(f"Total transitions: {len(sequence) - 1}")
 print(f"\nState frequencies:")
-state_counts = Counter(L_behavior_list)
+state_counts = Counter(sequence)
 for state, count in sorted(state_counts.items()):
-    print(f"  {state}: {count} times ({count/len(L_behavior_list)*100:.1f}%)")
+    print(f"  {state}: {count} times ({count/len(sequence)*100:.1f}%)")
 
 # Find the most likely next state for each state
 print(f"\nMost likely next state for each state:")

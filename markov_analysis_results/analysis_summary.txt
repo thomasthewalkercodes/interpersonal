@@ -1,0 +1,47 @@
+MARKOV CHAIN DATA ANALYSIS SUMMARY
+Interpersonal Circumplex Octant Analysis
+======================================================================
+
+Octant Labels:
+  PA: Warm-Dominant (Gregarious-Extraverted)
+  BC: Dominant (Assured-Dominant)
+  DE: Cold-Dominant (Arrogant-Calculating)
+  FG: Cold (Aloof-Introverted)
+  HI: Cold-Submissive (Unassured-Submissive)
+  JK: Submissive (Unassuming-Ingenuous)
+  LM: Warm-Submissive (Warm-Agreeable)
+  NO: Warm (Gregarious)
+
+
+Left SIDE
+----------------------------------------------------------------------
+Total observations: 2,354
+
+  PA: 72 (0.030586)
+  BC: 57 (0.024214)
+  DE: 749 (0.318182)
+  FG: 88 (0.037383)
+  HI: 34 (0.014444)
+  JK: 172 (0.073067)
+  LM: 969 (0.411640)
+  NO: 213 (0.090484)
+
+
+Right SIDE
+----------------------------------------------------------------------
+Total observations: 2,354
+
+  PA: 29 (0.012319)
+  BC: 227 (0.096432)
+  DE: 965 (0.409941)
+  FG: 140 (0.059473)
+  HI: 29 (0.012319)
+  JK: 129 (0.054800)
+  LM: 794 (0.337298)
+  NO: 41 (0.017417)
+
+
+MEAN INTENSITY (RADIUS)
+----------------------------------------------------------------------
+Left: 597.38 (SD=261.36)
+Right: 617.10 (SD=275.46)

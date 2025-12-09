@@ -197,10 +197,11 @@ def visualize_markov_chain(transition_probs, min_prob=0.05):
                 alpha=alpha,
                 edge_color="gray",
                 arrows=True,
-                arrowsize=20,
-                arrowstyle="->",
+                arrowsize=25,
+                arrowstyle="-|>",
                 ax=ax,
-                connectionstyle="arc3,rad=0.1",
+                connectionstyle="arc3,rad=0.15",
+                min_target_margin=20,
             )
 
     # Add edge labels with probabilities
