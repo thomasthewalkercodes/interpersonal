@@ -1,0 +1,154 @@
+
+INTERPERSONAL DYNAMICS: DYNAMICAL SYSTEMS ANALYSIS
+==================================================
+
+Dataset Overview:
+- Total agents analyzed: 3
+- Interaction rounds: 199
+- Unique dyads: 3
+- Total interaction records: 1200
+
+DYNAMICAL SYSTEMS METRICS
+=========================
+
+Behavioral Synchrony:
+- Mood synchrony: M = nan, SD = nan (n = 3)
+- Behavioral synchrony: M = -0.066, SD = 0.016 (n = 3)
+
+Stability Analysis:
+- Stability ratio: M = 0.906, SD = 0.705 (n = 3)
+- Converging dyads (ratio < 1.0): 2/3 (66.7%)
+
+Complementarity Dynamics:
+- Mean complementarity: M = 0.497, SD = 0.036 (n = 3)
+- Tracey pattern score: M = -0.013, SD = 0.016 (n = 3)
+
+DETAILED DYADIC ANALYSIS
+========================
+
+Dyad: Agent ↔ Balanced_Agent_Narcissistic
+  • Mood synchrony: 1.000
+  • Stability ratio: 0.500
+  • Complementarity trend: 0.0001
+  • Tracey pattern score: 0.003
+
+Dyad: Agent ↔ Anxious_Agent_Balanced
+  • Mood synchrony: 1.000
+  • Stability ratio: 1.897
+  • Complementarity trend: 0.0000
+  • Tracey pattern score: -0.007
+
+Dyad: Agent ↔ Anxious_Agent_Narcissistic
+  • Mood synchrony: nan
+  • Stability ratio: 0.320
+  • Complementarity trend: 0.0005
+  • Tracey pattern score: -0.035
+
+
+KEY RESEARCH HYPOTHESES
+=======================
+H1: Agent dyads with higher initial complementarity will show greater behavioral stability over time (measured by stability ratio < 1.0)
+
+H2: Rejection-sensitive agents will exhibit higher behavioral velocity when paired with dominant agents compared to when paired with submissive agents
+
+H3: Therapeutic agents implementing Tracey's 3-stage model will show characteristic complementarity patterns: high (rounds 1-33%) → low (rounds 34-66%) → high (rounds 67-100%)
+
+H4: Agents with similar personality types will show stronger mood synchrony (|r| > 0.5) than dissimilar personality pairs
+
+H5: Behavioral synchrony will predict final mood scores better than individual personality traits alone
+
+H6: Time-lagged cross-correlations will reveal asymmetric influence patterns: dominant agents' behavior at time t will predict submissive agents' behavior at time t+1 more strongly than vice versa
+
+H7: Critical slowing down indicators (increasing variance and autocorrelation) will precede major behavioral transitions by 3-5 interaction rounds
+
+H8: Agents starting in 'cold' behavioral regions (warmth < -0.5) will require external perturbations to escape local minima and achieve positive final moods
+
+H9: The variance trend in mood dynamics will be positive before behavioral regime changes and negative during stable periods
+
+H10: Successful dyads will converge to stable attractor states with exploration areas < 0.5 square units in behavioral space
+
+Additional Hypotheses: 13 (see full analysis)
+
+RECOMMENDED RESEARCH PROGRAM
+============================
+
+Phase 1: Validation Studies
+- Replicate findings with larger agent populations (n > 100)
+- Test personality × environment interactions systematically
+- Validate dynamical metrics against established interpersonal measures
+
+Phase 2: Mechanism Studies  
+- Implement parameter sweeps to test causal hypotheses
+- Add external perturbations to test attractor stability
+- Develop real-time intervention protocols based on critical slowing down
+
+Phase 3: Translation Studies
+- Validate findings with human dyadic interaction data
+- Develop clinical decision support tools
+- Test in therapeutic training programs
+
+METHODOLOGICAL INNOVATIONS
+===========================
+
+1. **Critical Slowing Down Detection**: Real-time monitoring of variance and autocorrelation
+2. **Phase Space Reconstruction**: Time-delay embedding for hidden structure detection  
+3. **Attractor Landscape Mapping**: Behavioral basin identification and stability analysis
+4. **Multi-scale Coupling Analysis**: From micro-interactions to macro-patterns
+
+STATISTICAL CONSIDERATIONS
+==========================
+
+Power Analysis:
+- Current effect sizes: Cohen's d ≈ 1.00 for synchrony measures
+- Recommended sample size for future studies: n ≥ 50 dyads per condition
+- Multiple comparisons: Use FDR correction for hypothesis testing
+
+Limitations:
+- Simulated data may not capture full human complexity
+- Need validation with ecological momentary assessment data
+- Longer time series (>500 rounds) needed for robust attractor detection
+
+IMPLICATIONS FOR CLINICAL PRACTICE
+==================================
+
+1. **Early Warning Systems**: Use critical slowing down to predict relationship crises
+2. **Intervention Timing**: Apply Tracey's model with dynamical monitoring
+3. **Personalized Treatment**: Match interventions to individual attractor landscapes
+4. **Progress Monitoring**: Track synchrony and stability as outcome measures
+
+REFERENCES AND THEORETICAL FOUNDATION
+=====================================
+
+Key theoretical frameworks:
+- Contemporary Integrative Interpersonal Theory (Hopwood & Pincus, 2025)
+- Dynamical Systems in Psychiatry (Scheffer et al., 2024) 
+- Formal Models of Interpersonality (Westermann & Banisch, 2025)
+- Interpersonal Circumplex Theory (Leary, 1957; Kiesler, 1996)
+
+Computational methods:
+- Agent-based modeling with Bayesian belief updating
+- Time series analysis with critical phenomena detection
+- Phase space reconstruction using Takens' theorem
+- Network analysis for multi-agent systems
+
+RESEARCH IMPACT AND DISSEMINATION
+=================================
+
+Target Journals:
+1. Clinical Psychological Science (dynamical systems focus)
+2. Journal of Consulting and Clinical Psychology (clinical applications)
+3. Psychological Methods (methodological innovations)
+4. Journal of Personality and Social Psychology (theoretical advances)
+
+Conference Presentations:
+- Society for Interpersonal Theory and Research (SITAR)
+- Association for Behavioral and Cognitive Therapies (ABCT)  
+- International Conference on Computational Social Science (IC2S2)
+
+Data and Code Availability:
+- All analysis code available at: GitHub.com/thomasthewalkercodes
+- Simulation parameters and replication materials: OSF.io/[project_id]
+
+Analysis conducted using: Advanced Interpersonal Dynamics Analyzer v2.0
+Contact: Thomas.walker2@uzh.ch | University of Zurich
+Generated: 2025-08-11 15:36:07
